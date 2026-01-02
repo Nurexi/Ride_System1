@@ -56,10 +56,6 @@ Ride Fair was built to:
 
 ---
 
-## 📂 Project Structure
-
-
-
 
 ---
 
@@ -118,6 +114,7 @@ Kombolcha
 📃 License
 
 This project is open-source and available under the MIT License.
+
 
 
 
