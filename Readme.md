@@ -4,8 +4,9 @@ Welcome to **Ride Fair** — a modern, secure, and user-friendly **ride booking 
 
 Ride Fair is a **full-stack, production-style project** that combines a stunning UI with real backend logic, role-based authentication, booking management, and an admin dashboard — all using modern web technologies.
 
-![Ride Fair Screenshot](https://github.com/user-attachments/assets/your-image-id)
-<!-- Replace with your actual screenshot -->
+<img width="2858" height="1800" alt="Screenshot (16)" src="https://github.com/user-attachments/assets/4438015b-d957-4b02-b8e0-dcb0da5fb1b3" />
+
+<img width="2850" height="1800" alt="Screenshot (17)" src="https://github.com/user-attachments/assets/5123ec6a-71c7-4f2d-9a08-2b83fbadc9e7" />
 
 ---
 
@@ -114,6 +115,7 @@ Kombolcha
 📃 License
 
 This project is open-source and available under the MIT License.
+
 
 
 
