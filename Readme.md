@@ -1,6 +1,5 @@
 # 🚖 Ride Fair | Smart & Fair Ride Booking Platform
 
-Welcome to **Ride Fair** — a modern, secure, and user-friendly **ride booking web application** built to deliver **fair pricing, safe rides, and seamless experiences** for riders, drivers, and administrators.
 
 Ride Fair is a **full-stack, production-style project** that combines a stunning UI with real backend logic, role-based authentication, booking management, and an admin dashboard — all using modern web technologies.
 
@@ -115,6 +114,7 @@ Kombolcha
 📃 License
 
 This project is open-source and available under the MIT License.
+
 
 
 
