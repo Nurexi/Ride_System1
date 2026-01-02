@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="auth_page_title">Login & Signup - RideFair</title>
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="auth-container">
+        <!-- 1️⃣ Left Side: Hero Section -->
+        <div class="auth-hero">
+            <!-- Particle Canvas -->
+            <canvas id="particleCanvas" class="particle-canvas"></canvas>
+            
+            <!-- Dark Overlay -->
+            <div class="hero-overlay"></div>
+            
+            <!-- Neon Lines -->
+            <div class="neon-line line-1"></div>
+            <div class="neon-line line-2"></div>
+            <div class="neon-line line-3"></div>
+            
+            <!-- Floating Icons -->
+            <div class="floating-icon icon-1">
+                <i class="fas fa-taxi"></i>
+            </div>
+            <div class="floating-icon icon-2">
+                <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="floating-icon icon-3">
+                <i class="fas fa-road"></i>
+            </div>
+            
+            <!-- Content -->
+            <div class="hero-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-taxi"></i>
+                    </div>
+                    <span data-key="site_name">RideFair</span>
+                </a>
+                
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="bold-primary" data-key="auth_hero_title_1">Join the Future</span>
+                        <span class="bold-secondary" data-key="auth_hero_title_2">of Fair Mobility</span>
+                    </h1>
+                    <p class="hero-subtitle" data-key="auth_hero_subtitle">
+                        Experience premium rides, transparent pricing, and complete control. 
+                        Where riders and drivers connect fairly.
+                    </p>
+                </div>
+                
+                <div class="hero-features">
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span data-key="auth_feature_1">Bank-level Security</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-bolt"></i>
+                        <span data-key="auth_feature_2">Instant Access</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-globe"></i>
+                        <span data-key="auth_feature_3">Global Network</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2️⃣ Right Side: Authentication Forms -->
+        <div class="auth-forms">
+            
+            
+            <!-- Forms Container -->
+            <div class="forms-wrapper" id="formsWrapper">
+                <!-- Login Form -->
+                <div class="form-container active" id="loginForm">
+                    <div class="form-header">
+                        <h2>Welcome Back</h2>
+                        <p>Sign in to your RideFair account</p>
+                    </div>
+                    
+                    <form id="loginFormElement" class="auth-form">
+                        <div class="form-group">
+                            <div class="input-wrapper">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="loginEmail" name="email" required autocomplete="email">
+                                <label for="loginEmail">Email Address</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="input-wrapper">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="loginPassword" name="password" required autocomplete="current-password">
+                                <label for="loginPassword">Password</label>
+                                <button type="button" class="password-toggle" data-target="loginPassword">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="form-options">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="rememberMe">
+                                    <span class="checkmark"></span>
+                                    <span>Remember me</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="fas fa-sign-in-alt"></i>
+                                Sign In
+                            </button>
+                        </div>
+                        
+                        <div class="form-footer">
+                            <p>Don't have an account? <a href="#signup" class="toggle-link" data-form="signup">Sign up</a></p>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Signup Form -->
+                <div class="form-container" id="signupForm">
+                    <div class="form-header">
+                        <h2>Create Account</h2>
+                        <p>Join RideFair's global mobility network</p>
+                    </div>
+                    
+                    <form id="signupFormElement" class="auth-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="signupFirstName" name="firstName" required autocomplete="given-name">
+                                    <label for="signupFirstName">First Name</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="signupLastName" name="lastName" required autocomplete="family-name">
+                                    <label for="signupLastName">Last Name</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <i class="fas fa-envelope"></i>
+                                    <input type="email" id="signupEmail" name="email" required autocomplete="email">
+                                    <label for="signupEmail">Email Address</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <i class="fas fa-lock"></i>
+                                    <input type="password" id="signupPassword" name="password" required autocomplete="new-password">
+                                    <label for="signupPassword">Password</label>
+                                    <button type="button" class="password-toggle" data-target="signupPassword">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="password-strength">
+                                    <div class="strength-bar">
+                                        <div class="strength-progress" id="passwordStrengthBar"></div>
+                                    </div>
+                                    <div class="strength-label" id="passwordStrengthText">Password strength</div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <i class="fas fa-lock"></i>
+                                    <input type="password" id="signupConfirm" name="confirmPassword" required autocomplete="new-password">
+                                    <label for="signupConfirm">Confirm Password</label>
+                                    <button type="button" class="password-toggle" data-target="signupConfirm">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="password-match" id="passwordMatch">
+                                    <i class="fas fa-check"></i>
+                                    <span>Passwords match</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="termsAgreement" name="terms" required>
+                                <span class="checkmark"></span>
+                                <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="fas fa-user-plus"></i>
+                                Create Account
+                            </button>
+                        </div>
+                        
+                        <div class="form-footer">
+                            <p>Already have an account? <a href="#login" class="toggle-link" data-form="login">Sign in</a></p>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Success Message -->
+            <div class="success-message" id="successMessage">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>Welcome to RideFair!</h3>
+                <p>Your account has been created successfully. Redirecting to dashboard...</p>
+                <div class="success-progress">
+                    <div class="progress-bar"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Toggle -->
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle forms">
+            <i class="fas fa-exchange-alt"></i>
+            <span>Switch to Sign Up</span>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>

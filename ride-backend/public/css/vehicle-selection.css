@@ -1,0 +1,766 @@
+/* Real Vehicle Selection Styles */
+
+.vehicle-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    color: #6b7280;
+    text-align: center;
+}
+
+.vehicle-loading small {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #9ca3af;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #f3f4f6;
+    border-top: 3px solid #C1F11D;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.vehicle-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    color: #ef4444;
+    text-align: center;
+}
+
+.vehicle-error.hidden {
+    display: none;
+}
+
+.vehicle-error i {
+    font-size: 48px;
+    margin-bottom: 16px;
+    opacity: 0.7;
+}
+
+.vehicle-error p {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.no-vehicles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    text-align: center;
+    color: #6b7280;
+}
+
+.no-vehicles.hidden {
+    display: none;
+}
+
+.no-vehicles-icon {
+    font-size: 64px;
+    color: #d1d5db;
+    margin-bottom: 24px;
+}
+
+.no-vehicles h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 12px;
+}
+
+.no-vehicles p {
+    font-size: 16px;
+    color: #6b7280;
+    margin-bottom: 24px;
+    max-width: 400px;
+    line-height: 1.5;
+}
+
+/* Real Vehicle Card Styles - Enhanced */
+.vehicle-card.real-vehicle {
+    position: relative;
+    background: white;
+    border-radius: 16px;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+}
+
+.vehicle-card.real-vehicle:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.vehicle-card.real-vehicle.selected {
+    border-color: #C1F11D;
+    box-shadow: 0 0 0 4px rgba(193, 241, 29, 0.1);
+}
+
+.vehicle-image {
+    position: relative;
+    height: 200px;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.vehicle-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.vehicle-card.real-vehicle:hover .vehicle-image img {
+    transform: scale(1.05);
+}
+
+.vehicle-icon-fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 64px;
+    color: #94a3b8;
+}
+
+.vehicle-info {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.vehicle-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.vehicle-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0;
+}
+
+.vehicle-year-color {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.color-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid #d1d5db;
+}
+
+.vehicle-description {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.4;
+    margin: 0;
+    font-style: italic;
+}
+
+.vehicle-specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.spec-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.spec-item i {
+    font-size: 14px;
+    color: #9ca3af;
+    width: 16px;
+    text-align: center;
+}
+
+.vehicle-features h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    margin: 0 0 8px 0;
+}
+
+.features-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.feature-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #f0f9ff;
+    color: #0369a1;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.feature-tag i {
+    font-size: 10px;
+}
+
+.feature-more {
+    background: #f3f4f6;
+    color: #6b7280;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.vehicle-pricing {
+    background: #f8fafc;
+    padding: 16px;
+    border-radius: 12px;
+    margin-top: auto;
+}
+
+.price-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.price-daily, .price-hourly {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.price-label {
+    font-size: 11px;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+
+.price-amount {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.price-negotiation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.negotiation-label {
+    font-size: 11px;
+    color: #059669;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.negotiation-range {
+    font-size: 12px;
+    color: #059669;
+    font-weight: 600;
+    background: #d1fae5;
+    padding: 2px 8px;
+    border-radius: 8px;
+}
+
+.vehicle-location {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #6b7280;
+    padding: 12px 16px;
+    background: #f9fafb;
+    border-radius: 8px;
+    margin-top: 8px;
+}
+
+.vehicle-location i {
+    color: #ef4444;
+    font-size: 12px;
+}
+
+.vehicle-select {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+}
+
+.vehicle-card.real-vehicle.selected .vehicle-select {
+    opacity: 1;
+    transform: scale(1);
+    background: #C1F11D;
+    color: #1f2937;
+}
+
+.vehicle-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.vehicle-badge.available {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+
+.vehicle-badge.unavailable {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .vehicle-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .vehicle-specs {
+        gap: 12px;
+    }
+    
+    .spec-item {
+        font-size: 11px;
+    }
+    
+    .vehicle-name {
+        font-size: 18px;
+    }
+    
+    .price-amount {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .vehicle-image {
+        height: 160px;
+    }
+    
+    .vehicle-info {
+        padding: 16px;
+    }
+    
+    .vehicle-pricing {
+        padding: 12px;
+    }
+}
+
+/* Dark theme support */
+[data-theme="dark"] .vehicle-card.real-vehicle {
+    background: #1f2937;
+    border-color: #374151;
+}
+
+[data-theme="dark"] .vehicle-card.real-vehicle.selected {
+    border-color: #C1F11D;
+}
+
+[data-theme="dark"] .vehicle-name {
+    color: #f9fafb;
+}
+
+[data-theme="dark"] .vehicle-pricing {
+    background: #111827;
+}
+
+[data-theme="dark"] .price-amount {
+    color: #f9fafb;
+}
+
+[data-theme="dark"] .vehicle-select {
+    background: #374151;
+    color: #f9fafb;
+}
+
+[data-theme="dark"] .vehicle-card.real-vehicle.selected .vehicle-select {
+    background: #C1F11D;
+    color: #1f2937;
+}
+
+/* ============================================
+   NEGOTIATION SYSTEM STYLES
+   ============================================ */
+
+.searching-drivers {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    background: #f0f9ff;
+    border-radius: 12px;
+    color: #0369a1;
+}
+
+.searching-drivers i {
+    font-size: 18px;
+}
+
+.driver-accepted {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    background: #f0fdf4;
+    border-radius: 12px;
+    color: #166534;
+}
+
+.driver-accepted i {
+    font-size: 24px;
+}
+
+.driver-accepted p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.driver-accepted small {
+    display: block;
+    margin-top: 4px;
+    opacity: 0.8;
+}
+
+.driver-counter {
+    display: flex;
+    gap: 12px;
+    padding: 20px;
+    background: #fefce8;
+    border-radius: 12px;
+    border: 1px solid #fde047;
+}
+
+.driver-avatar {
+    width: 40px;
+    height: 40px;
+    background: #f59e0b;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.driver-message {
+    flex: 1;
+}
+
+.driver-message strong {
+    color: #92400e;
+    font-size: 16px;
+}
+
+.driver-message p {
+    margin: 4px 0;
+    color: #a16207;
+    line-height: 1.4;
+}
+
+.driver-message small {
+    color: #a16207;
+    opacity: 0.8;
+}
+
+.driver-rejected {
+    padding: 20px;
+    background: #fef2f2;
+    border-radius: 12px;
+    color: #991b1b;
+    text-align: center;
+}
+
+.driver-rejected i {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.driver-rejected p {
+    margin: 8px 0;
+}
+
+.driver-rejected .btn {
+    margin-top: 12px;
+}
+
+.negotiation-ended {
+    padding: 20px;
+    background: #fffbeb;
+    border-radius: 12px;
+    color: #92400e;
+    text-align: center;
+}
+
+.negotiation-ended i {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.negotiation-ended p {
+    margin: 8px 0;
+}
+
+.negotiation-ended small {
+    display: block;
+    margin-top: 8px;
+    opacity: 0.8;
+    font-style: italic;
+}
+
+/* Counter Offer Styles */
+.counter-offer {
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 16px;
+}
+
+.counter-label {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.counter-price {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 16px;
+}
+
+.counter-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.counter-actions .btn {
+    flex: 1;
+}
+
+/* Agreed Price Styles */
+.agreed-price {
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border: 2px solid #bbf7d0;
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    margin-top: 16px;
+}
+
+.agreed-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #166534;
+    margin-bottom: 12px;
+}
+
+.agreed-label i {
+    font-size: 20px;
+}
+
+.final-price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #166534;
+    margin-bottom: 8px;
+}
+
+.agreed-note {
+    color: #166534;
+    font-size: 14px;
+    margin: 0;
+    opacity: 0.8;
+}
+
+/* Price Input Group */
+.price-input-group {
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 4px;
+    margin-bottom: 12px;
+    transition: border-color 0.3s ease;
+}
+
+.price-input-group:focus-within {
+    border-color: #C1F11D;
+    box-shadow: 0 0 0 3px rgba(193, 241, 29, 0.1);
+}
+
+.price-input-group .currency {
+    padding: 12px 16px;
+    background: #f8fafc;
+    color: #64748b;
+    font-weight: 600;
+    border-radius: 8px;
+    margin-right: 8px;
+}
+
+.price-input-group input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1e293b;
+    background: transparent;
+}
+
+.price-hint {
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .driver-counter {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .counter-actions {
+        flex-direction: column;
+    }
+    
+    .final-price {
+        font-size: 24px;
+    }
+    
+    .price-input-group input {
+        font-size: 16px;
+    }
+}
+
+/* Dark theme support */
+[data-theme="dark"] .searching-drivers {
+    background: rgba(3, 105, 161, 0.1);
+    color: #7dd3fc;
+}
+
+[data-theme="dark"] .driver-accepted {
+    background: rgba(22, 101, 52, 0.1);
+    color: #86efac;
+}
+
+[data-theme="dark"] .driver-counter {
+    background: rgba(245, 158, 11, 0.1);
+    border-color: rgba(245, 158, 11, 0.3);
+}
+
+[data-theme="dark"] .driver-message strong {
+    color: #fbbf24;
+}
+
+[data-theme="dark"] .driver-message p,
+[data-theme="dark"] .driver-message small {
+    color: #fcd34d;
+}
+
+[data-theme="dark"] .agreed-price {
+    background: rgba(22, 101, 52, 0.1);
+    border-color: rgba(34, 197, 94, 0.3);
+}
+
+[data-theme="dark"] .counter-offer {
+    background: #1f2937;
+    border-color: #374151;
+}
+
+[data-theme="dark"] .price-input-group {
+    background: #1f2937;
+    border-color: #374151;
+}
+
+[data-theme="dark"] .price-input-group .currency {
+    background: #111827;
+    color: #9ca3af;
+}
+
+[data-theme="dark"] .price-input-group input {
+    color: #f9fafb;
+}

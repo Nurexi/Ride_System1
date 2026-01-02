@@ -1,0 +1,419 @@
+/* TeleBirr Payment Styles - Neon Green Theme */
+
+.telebirr-icon {
+    background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+}
+
+.telebirr-badge {
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.telebirr-features {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+
+.feature-tag {
+    background: rgba(0, 255, 65, 0.1);
+    color: #00cc33;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    border: 1px solid rgba(0, 255, 65, 0.3);
+}
+
+.telebirr-payment-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid #00ff41;
+    position: relative;
+}
+
+.telebirr-payment-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #00ff41, #00cc33, #00ff41);
+    border-radius: 16px;
+    z-index: -1;
+    opacity: 0.3;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { opacity: 0.3; }
+    to { opacity: 0.6; }
+}
+
+.telebirr-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(0, 255, 65, 0.2);
+}
+
+.telebirr-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #97ea68;
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+}
+
+.telebirr-logo i {
+    font-size: 24px;
+    filter: drop-shadow(0 0 5px rgba(0, 255, 65, 0.5));
+}
+
+.telebirr-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-text {
+    color: #00cc33;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.payment-amount-display {
+   background: linear-gradient(135deg, #abd776 0%, #c0ff8c 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 24px;
+    box-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.payment-amount-display::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.amount-label {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 8px;
+}
+
+.amount-value {
+    font-size: 32px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.amount-value .currency {
+    font-size: 20px;
+    opacity: 0.8;
+}
+
+.telebirr-phone-input {
+    margin-bottom: 24px;
+}
+
+.telebirr-phone-input label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.telebirr-phone-input input {
+    width: 100%;
+    padding: 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.telebirr-phone-input input:focus {
+    border-color: #00ff41;
+    box-shadow: 0 0 0 3px rgba(0, 255, 65, 0.1), 0 0 20px rgba(0, 255, 65, 0.2);
+    outline: none;
+}
+
+.input-hint {
+    color: #666;
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+}
+
+.telebirr-info-notice {
+    background: rgba(0, 255, 65, 0.05);
+    border: 1px solid rgba(0, 255, 65, 0.2);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.info-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #00ff41;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+}
+
+.telebirr-info-notice p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #00cc33;
+}
+
+.btn-telebirr {
+    width: 100%;
+   background: linear-gradient(135deg, #bdff6e 0%, #88b04a 100%);
+    color: white;
+    border: none;
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 255, 65, 0.3);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.btn-telebirr::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-telebirr:hover::before {
+    left: 100%;
+}
+
+.btn-telebirr:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 255, 65, 0.4);
+    filter: brightness(1.1);
+}
+
+.btn-telebirr:active {
+    transform: translateY(0);
+}
+
+.btn-telebirr:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.payment-loader {
+    position: absolute;
+    right: 20px;
+}
+
+.payment-loader.hidden {
+    display: none;
+}
+
+/* TeleBirr Payment Success Modal */
+.telebirr-success-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.telebirr-success-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.telebirr-success-content {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+    border: 2px solid #00ff41;
+    box-shadow: 0 0 50px rgba(0, 255, 65, 0.3);
+}
+
+.telebirr-success-modal.active .telebirr-success-content {
+    transform: scale(1);
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: white;
+    font-size: 36px;
+    box-shadow: 0 0 30px rgba(0, 255, 65, 0.4);
+    animation: pulse-success 2s infinite;
+}
+
+@keyframes pulse-success {
+    0% { box-shadow: 0 0 30px rgba(0, 255, 65, 0.4); }
+    50% { box-shadow: 0 0 50px rgba(0, 255, 65, 0.6); }
+    100% { box-shadow: 0 0 30px rgba(0, 255, 65, 0.4); }
+}
+
+.success-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.success-message {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.transaction-details {
+    background: rgba(0, 255, 65, 0.05);
+    border-radius: 12px;
+    padding: 16px;
+    margin: 20px 0;
+    text-align: left;
+    border: 1px solid rgba(0, 255, 65, 0.2);
+}
+
+.transaction-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.transaction-row:last-child {
+    margin-bottom: 0;
+    font-weight: bold;
+    padding-top: 8px;
+    border-top: 1px solid rgba(0, 255, 65, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .telebirr-payment-card {
+        padding: 20px;
+        margin: 16px 0;
+    }
+    
+    .telebirr-header {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+    
+    .amount-value {
+        font-size: 28px;
+    }
+    
+    .telebirr-success-content {
+        padding: 30px 20px;
+    }
+}
+
+/* Animation for payment processing */
+.btn-telebirr.processing {
+    animation: pulse-processing 1.5s infinite;
+}
+
+@keyframes pulse-processing {
+    0% { 
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(0, 255, 65, 0.3);
+    }
+    50% { 
+        transform: scale(1.02);
+        box-shadow: 0 6px 25px rgba(0, 255, 65, 0.5);
+    }
+    100% { 
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(0, 255, 65, 0.3);
+    }
+}
+
+/* Remove wallet section since we're using TeleBirr only */
+.wallet-card {
+    display: none;
+}

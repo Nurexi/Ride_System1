@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="contact_page_title">Contact & Support - RideFair</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- 1. HEADER -->
+    <header class="header glass-effect" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-taxi"></i>
+                    </div>
+                    <span data-key="site_name">RideFair</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="desktop-nav">
+                    <div class="nav-links">
+                        <a href="index.html" class="nav-link">Home</a>
+                        <a href="about.html" class="nav-link" data-key="nav_about">About</a>
+                        <a href="book.html" class="nav-link" data-key="nav_book">Book</a>
+
+                        <a href="#services" class="nav-link" data-key="nav_services">Services</a>
+                        <a href="safety.html" class="nav-link" data-key="nav_safety">Safety</a>
+                        <a href="contact.html" class="nav-link" data-key="nav_contact">Contact</a>
+                    </div>
+
+                    <!-- Language Switcher -->
+                    <div class="language-switcher">
+                        <button class="language-toggle" id="languageToggle" aria-label="Select language">
+                            <span class="current-lang" id="currentLang">EN</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="language-dropdown" id="languageDropdown">
+                            <button class="language-option" data-lang="en">
+                                <span class="lang-code">EN</span>
+                                <span class="lang-name">English</span>
+                            </button>
+                            <button class="language-option" data-lang="am">
+                                <span class="lang-code">አማ</span>
+                                <span class="lang-name">Amharic</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="nav-actions">
+                        
+                        <a href="auth.html" class="btn btn-primary btn-signup" data-key="nav_sign_up">Sign Up</a>
+                    </div>
+                </nav>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu glass-effect" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-taxi"></i>
+                    </div>
+                    <span data-key="site_name">RideFair</span>
+                </div>
+                <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="mobile-nav-links">
+                <a href="#hero" class="mobile-nav-link" data-key="nav_home">Home</a>
+
+                <a href="about.html" class="mobile-nav-link" data-key="nav_about">About</a>
+                <a href="book.html" class="nav-link" data-key="nav_book">Book</a>
+                <a href="#services" class="mobile-nav-link" data-key="nav_services">Services</a>
+                <a href="safety.html" class="mobile-nav-link" data-key="nav_safety">Safety</a>
+                <a href="contact.html" class="mobile-nav-link" data-key="nav_contact">Contact</a>
+            </nav>
+
+            <!-- Mobile Language Switcher -->
+            <div class="mobile-language-switcher">
+                <div class="mobile-language-options">
+                    <button class="mobile-language-option active" data-lang="en">
+                        <span class="lang-code">EN</span>
+                        <span class="lang-name">English</span>
+                    </button>
+                    <button class="mobile-language-option" data-lang="am">
+                        <span class="lang-code">አማ</span>
+                        <span class="lang-name">Amharic</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="mobile-menu-actions">
+                <a href="drivers.html" class="btn btn-outline btn-block btn-driver" data-key="nav_become_driver">Become
+                    a Driver</a>
+                <a href="auth.html" class="btn btn-primary btn-block btn-signup" data-key="nav_sign_up">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content reveal">
+                <h1><span class="bold-primary" data-key="contact_title_1">Contact</span> <span class="bold-secondary"
+                        data-key="contact_title_2">& Support</span></h1>
+                <p class="hero-subtitle" data-key="contact_subtitle">24/7 professional assistance for riders, drivers,
+                    and business partners</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-clock"></i>
+                        <span data-key="contact_stat_1">24/7 Support</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span data-key="contact_stat_2">Average Response: < 5 min</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-headset"></i>
+                        <span data-key="contact_stat_3">Global Assistance</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#C1F11D" fill-opacity="0.1"
+                    d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                </path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- CONTACT CHANNELS -->
+    <section class="contact-channels" id="contact-info">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 data-key="contact_method_title">Choose Your Preferred <span class="bold-primary">Contact
+                        Method</span></h2>
+                <p data-key="contact_method_subtitle">Select the most convenient way to reach our dedicated support
+                    teams</p>
+            </div>
+
+            <div class="channels-grid">
+
+
+                <div class="channel-card reveal">
+                    <div class="channel-icon secondary">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 data-key="contact_email_title">Email Support</h3>
+                    <p data-key="contact_email_desc">Detailed inquiries with expert response</p>
+                    <div class="channel-actions">
+                        <a href="mailto:ridefair@gmail.com" class="btn btn-small btn-primary">
+                            <i class="fas fa-paper-plane"></i> Email Us
+                        </a>
+                    </div>
+                    <div class="channel-info">
+                        <p><i class="fas fa-history"></i> Response within 2 hours</p>
+                        <p><i class="fas fa-file-alt"></i> Attachments supported</p>
+                    </div>
+                </div>
+
+                <div class="channel-card reveal">
+                    <div class="channel-icon accent">
+                        <i class="fas fa-steering-wheel"></i>
+                    </div>
+                    <h3 data-key="contact_driver_title">Driver Support</h3>
+                    <p data-key="contact_driver_desc">Dedicated assistance for drivers</p>
+                    <div class="channel-actions">
+                        <a href="tel:+251990909090" class="btn btn-small btn-primary">
+                            <i class="fas fa-phone"></i> Driver Line
+                        </a>
+                        <a href="mailto:ridefair@gmail.com" class="btn btn-small btn-outline">
+                            <i class="fas fa-envelope"></i> Email Drivers
+                        </a>
+                    </div>
+                    <div class="channel-info">
+                        <p><i class="fas fa-users"></i> Driver Community</p>
+                        <p><i class="fas fa-chart-line"></i> Earnings Support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT DETAILS -->
+    <section class="contact-details-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 data-key="contact_info_title">Direct <span class="bold-primary">Contact Information</span></h2>
+                <p data-key="contact_info_subtitle">Reach out to specific departments for targeted assistance</p>
+            </div>
+
+            <div class="details-grid">
+                <div class="detail-item reveal">
+                    <div class="detail-header">
+                        <i class="fas fa-user-circle"></i>
+                        <h3 data-key="contact_customer_support">Customer Support</h3>
+                    </div>
+                    <div class="detail-content">
+                        <p><strong>General Inquiries & Ride Assistance</strong></p>
+                        <div class="contact-methods">
+                            <a href="tel:+251990909090" class="contact-link">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <span class="label">Phone</span>
+                                    <span class="value">+251 990909090</span>
+                                </div>
+                            </a>
+                            <a href="mailto:ridefair@gmail.com" class="contact-link">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <span class="label">Email</span>
+                                    <span class="value">ridefair@gmail.com</span>
+                                </div>
+                            </a>
+                            <div class="contact-link">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <span class="label">Hours</span>
+                                    <span class="value">24/7</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-item reveal">
+                    <div class="detail-header">
+                        <i class="fas fa-briefcase"></i>
+                        <h3 data-key="contact_business_enterprise">Business & Enterprise</h3>
+                    </div>
+                    <div class="detail-content">
+                        <p><strong>Partnerships & Corporate Accounts</strong></p>
+                        <div class="contact-methods">
+                            <a href="tel:+251940404040" class="contact-link">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <span class="label">Phone</span>
+                                    <span class="value">+251 940404040</span>
+                                </div>
+                            </a>
+                            <a href="mailto:bussinessride@gmail.com" class="contact-link">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <span class="label">Email</span>
+                                    <span class="value">bussinessride@gmail.com</span>
+                                </div>
+                            </a>
+                            <div class="contact-link">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <span class="label">Hours</span>
+                                    <span class="value">Mon-Fri, 9AM-6PM EST</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-item emergency reveal">
+                    <div class="detail-header">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3 data-key="contact_safety_emergency">Safety & Emergency</h3>
+                    </div>
+                    <div class="detail-content">
+                        <p><strong>Priority Response for Urgent Matters</strong></p>
+                        <div class="contact-methods">
+                            <a href="tel:991" class="contact-link emergency">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <span class="label">Emergency</span>
+                                    <span class="value">991 (Local Emergency)</span>
+                                </div>
+                            </a>
+                            <a href="tel:+251912345678" class="contact-link">
+                                <i class="fas fa-shield-alt"></i>
+                                <div>
+                                    <span class="label">RideFair Safety</span>
+                                    <span class="value">+251 912345678</span>
+                                </div>
+                            </a>
+                            <div class="contact-link">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <span class="label">Response Time</span>
+                                    <span class="value">
+                                        < 2 minutes</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUPPORT CATEGORIES -->
+    <section class="support-categories" id="support-categories">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 data-key="contact_support_categories_title">Quick <span class="bold-primary">Support
+                        Categories</span></h2>
+                <p data-key="contact_support_categories_subtitle">Find instant solutions for common issues</p>
+            </div>
+
+            <div class="categories-grid">
+                <div class="support-category reveal" data-category="account">
+                    <div class="category-icon">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <h3>Account Management</h3>
+                    <ul class="category-topics">
+                        <li>Password Reset</li>
+                        <li>Profile Updates</li>
+                        <li>Account Security</li>
+                    </ul>
+                </div>
+
+                <div class="support-category reveal" data-category="payment">
+                    <div class="category-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Payment & Billing</h3>
+                    <ul class="category-topics">
+                        <li>Payment Methods</li>
+                        <li>Invoice Issues</li>
+                        <li>Refund Requests</li>
+                    </ul>
+                </div>
+
+                <div class="support-category reveal" data-category="ride">
+                    <div class="category-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Ride Management</h3>
+                    <ul class="category-topics">
+                        <li>Booking Issues</li>
+                        <li>Driver Communication</li>
+                        <li>Route Changes</li>
+                    </ul>
+                </div>
+
+                <div class="support-category reveal" data-category="safety">
+                    <div class="category-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Safety & Reporting</h3>
+                    <ul class="category-topics">
+                        <li>Incident Reports</li>
+                        <li>Safety Features</li>
+                        <li>Trust & Verification</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="category-modal" id="categoryModal">
+                <div class="modal-content">
+                    <button class="modal-close" id="modalClose">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <h3 id="modalTitle">Support Category</h3>
+                    <p id="modalDescription">Loading details...</p>
+                    <div class="modal-actions">
+                        <a href="mailto:ridefair@gmail.com" class="btn btn-primary">Get Live Help</a>
+                        <button class="btn btn-outline" id="closeModal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 data-key="contact_faq_title">Frequently Asked <span class="bold-primary">Questions</span></h2>
+                <p data-key="contact_faq_subtitle">Quick answers to common inquiries</p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-column">
+                    <div class="faq-item reveal">
+                        <div class="faq-header">
+                            <h3>How do I contact my driver?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-content">
+                            <p>Once your ride is booked, you'll see your driver's details in the app. You can call or
+                                message them directly through the RideFair app's secure communication channel.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal">
+                        <div class="faq-header">
+                            <h3>How do refunds work?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-content">
+                            <p>Refunds are processed based on cancellation time and ride status. Cancellations made
+                                before the driver arrives are fully refunded. Refunds typically appear in your account
+                                within 3-5 business days.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal">
+                        <div class="faq-header">
+                            <h3>What safety features are available?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-content">
+                            <p>RideFair includes real-time tracking, driver verification, emergency assistance, ride
+                                sharing with trusted contacts, and 24/7 safety support. All drivers undergo
+                                comprehensive background checks.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal">
+                        <div class="faq-header">
+                            <h3>How do I report a lost item?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-content">
+                            <p>Go to your ride history in the app, select the ride, and report a lost item. Our support
+                                team will contact the driver and coordinate item recovery within 24 hours.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-column">
+                    <div class="faq-item reveal">
+                        <div class="faq-header">
+                            <h3>Why was my payment declined?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-content">
+                            <p>Common reasons include insufficient funds, expired cards, or temporary holds. Update your
+                                payment method in app settings or contact your bank for more information.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal">
+                        <div class="faq-header">
+                            <h3>How do I become a driver?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-content">
+                            <p>Visit our Driver Portal, complete the application, pass background checks, and meet
+                                vehicle requirements. Our driver support team guides you through each step.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal">
+                        <div class="faq-header">
+                            <h3>Are promo codes available?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-content">
+                            <p>Yes! Check your email for promotional offers or apply promo codes during checkout. Follow
+                                our social media for exclusive deals and limited-time offers.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal">
+                        <div class="faq-header">
+                            <h3>How do I delete my account?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-content">
+                            <p>Navigate to Settings > Account > Delete Account. Note this action is permanent and
+                                removes all data. Contact support for assistance with account management.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat widget removed -->
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-logo" data-key="site_name">RideFair</div>
+                    <p class="footer-tagline" data-key="footer_tagline_contact">Professional transportation solutions
+                        worldwide.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title" data-key="footer_support_title">Support</h4>
+                    <div class="footer-links">
+                        <a href="#contact-info" class="footer-link">Contact Us</a>
+                        <a href="#faq" class="footer-link">Help Center</a>
+                        <a href="#" class="footer-link">Safety Center</a>
+                        <a href="#" class="footer-link">Accessibility</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title" data-key="footer_company">Company</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">About Us</a>
+                        <a href="#" class="footer-link">Careers</a>
+                        <a href="#" class="footer-link">Press</a>
+                        <a href="#" class="footer-link">Blog</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title" data-key="footer_legal">Legal</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                        <a href="#" class="footer-link">Terms of Service</a>
+                        <a href="#" class="footer-link">Cookie Policy</a>
+                        <a href="#" class="footer-link">Licenses</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; <span id="currentYear"></span> RideFair Technologies. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dark/Light Mode Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </button>
+
+    <script src="script.js"></script>
+    <script src="contact.js"></script>
+</body>
+
+</html>

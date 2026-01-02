@@ -1,0 +1,219 @@
+/* Styles for Backend-Integrated Vehicle Cards */
+
+.real-vehicles-section {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: none;
+}
+
+.real-vehicles-section h3 {
+    color: #fff;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.real-vehicle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    display: none;
+}
+
+.real-vehicle-card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.real-vehicle-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(0, 123, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.real-vehicle-card.selected {
+    border-color: #007bff;
+    background: rgba(0, 123, 255, 0.1);
+}
+
+.vehicle-image {
+    width: 100%;
+    height: 150px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vehicle-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.vehicle-icon-placeholder {
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.vehicle-details h4 {
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.vehicle-year {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.vehicle-location {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.vehicle-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.feature-tag {
+    background: rgba(0, 123, 255, 0.2);
+    color: #007bff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.vehicle-pricing {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+}
+
+.price-item {
+    text-align: center;
+}
+
+.price-label {
+    display: block;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8rem;
+    margin-bottom: 0.25rem;
+}
+
+.price-value {
+    color: #28a745;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.vehicle-status {
+    padding: 0.5rem;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.vehicle-status.available {
+    background: rgba(40, 167, 69, 0.2);
+    color: #28a745;
+}
+
+.vehicle-status.unavailable {
+    background: rgba(220, 53, 69, 0.2);
+    color: #dc3545;
+}
+
+.select-vehicle-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.select-vehicle-btn:hover:not(.disabled) {
+    background: linear-gradient(135deg, #0056b3, #004085);
+    transform: translateY(-1px);
+}
+
+.select-vehicle-btn.disabled {
+    background: rgba(108, 117, 125, 0.5);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* API Message Styles */
+.api-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    z-index: 10000;
+    display: none;
+    max-width: 400px;
+}
+
+.api-message.success {
+    background: rgba(40, 167, 69, 0.9);
+    color: white;
+    border: 1px solid #28a745;
+}
+
+.api-message.error {
+    background: rgba(220, 53, 69, 0.9);
+    color: white;
+    border: 1px solid #dc3545;
+}
+
+.api-message.info {
+    background: rgba(0, 123, 255, 0.9);
+    color: white;
+    border: 1px solid #007bff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .real-vehicle-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .vehicle-pricing {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .api-message {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+}

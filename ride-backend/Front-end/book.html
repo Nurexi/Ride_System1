@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="booking_page_title">Book Now - RideFair</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet CSS for OpenStreetMap -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="book.css">
+    <link rel="stylesheet" href="api-styles.css">
+    <link rel="stylesheet" href="user-menu.css">
+    <link rel="stylesheet" href="vehicle-selection.css">
+    <link rel="stylesheet" href="telebirr-payment.css">
+</head>
+
+<body>
+    <!-- 1. HEADER -->
+    <header class="header glass-effect" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-taxi"></i>
+                    </div>
+                    <span data-key="site_name">RideFair</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="desktop-nav">
+                    <div class="nav-links">
+                        <a href="index.html" class="nav-link" data-key="nav_home">Home</a>
+                        <a href="about.html" class="nav-link" data-key="nav_about">About</a>
+                        <a href="book.html" class="nav-link active" data-key="nav_book">Book</a>
+                        <a href="my-rides.html" class="nav-link" data-key="nav_my_rides">My Rides</a>
+                        <a href="safety.html" class="nav-link" data-key="nav_safety">Safety</a>
+                        <a href="contact.html" class="nav-link" data-key="nav_contact">Contact</a>
+                    </div>
+
+                    <!-- Language Switcher -->
+                    <div class="language-switcher">
+                        <button class="language-toggle" id="languageToggle" aria-label="Select language">
+                            <span class="current-lang" id="currentLang">EN</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="language-dropdown" id="languageDropdown">
+                            <button class="language-option" data-lang="en">
+                                <span class="lang-code">EN</span>
+                                <span class="lang-name">English</span>
+                            </button>
+                            <button class="language-option" data-lang="am">
+                                <span class="lang-code">አማ</span>
+                                <span class="lang-name">Amharic</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="nav-actions">
+                        <a href="auth.html" class="btn btn-primary btn-signup" data-key="nav_sign_up">Sign Up</a>
+                    </div>
+                </nav>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu glass-effect" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-taxi"></i>
+                    </div>
+                    <span data-key="site_name">RideFair</span>
+                </div>
+                <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="mobile-nav-links">
+                <a href="#hero" class="mobile-nav-link" data-key="nav_home">Home</a>
+
+                <a href="about.html" class="mobile-nav-link" data-key="nav_about">About</a>
+                <a href="book.html" class="nav-link" data-key="nav_book">Book</a>
+
+                <a href="#services" class="mobile-nav-link" data-key="nav_services">Services</a>
+                <a href="safety.html" class="mobile-nav-link" data-key="nav_safety">Safety</a>
+                <a href="contact.html" class="mobile-nav-link" data-key="nav_contact">Contact</a>
+            </nav>
+
+            <!-- Mobile Language Switcher -->
+            <div class="mobile-language-switcher">
+                <div class="mobile-language-options">
+                    <button class="mobile-language-option active" data-lang="en">
+                        <span class="lang-code">EN</span>
+                        <span class="lang-name">English</span>
+                    </button>
+                    <button class="mobile-language-option" data-lang="am">
+                        <span class="lang-code">አማ</span>
+                        <span class="lang-name">Amharic</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="mobile-menu-actions">
+                <a href="auth.html" class="btn btn-primary btn-block btn-signup" data-key="nav_sign_up">Sign Up</a>
+            </div>
+        </div>
+    </header>
+    <!-- Main Booking Content -->
+    <main class="booking-page">
+        <div class="container">
+            <!-- 1. Page Header -->
+            <section class="booking-header section-fade">
+                <h1 class="booking-title">
+                    <span class="bold-primary" data-key="booking_title_1">Book</span>
+                    <span class="bold-secondary" data-key="booking_title_2">Your Ride</span>
+                </h1>
+                <p class="booking-subtitle" data-key="booking_subtitle">Simple, transparent, and fair pricing for every
+                    journey</p>
+                <div class="booking-progress">
+                    <div class="progress-steps">
+                        <div class="step active" data-step="1">
+                            <div class="step-number">1</div>
+                            <div class="step-label" data-key="step_trip_details">Trip Details</div>
+                        </div>
+                        <div class="step" data-step="2">
+                            <div class="step-number">2</div>
+                            <div class="step-label" data-key="step_vehicle">Vehicle</div>
+                        </div>
+                        <div class="step" data-step="3">
+                            <div class="step-number">3</div>
+                            <div class="step-label" data-key="step_price">Price</div>
+                        </div>
+                        <div class="step" data-step="4">
+                            <div class="step-number">4</div>
+                            <div class="step-label" data-key="step_payment">Payment</div>
+                        </div>
+                        <div class="step" data-step="5">
+                            <div class="step-number">5</div>
+                            <div class="step-label" data-key="step_confirm">Confirm</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Booking Form -->
+            <form id="bookingForm" class="booking-form">
+                <!-- 2. Trip Details Section with MAP -->
+                <section class="booking-section active booking-card" id="trip-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-map-marker-alt"></i> <span data-key="trip_details_title">Trip
+                                Details</span></h2>
+                        <p data-key="trip_details_subtitle">Enter your pickup and destination locations</p>
+                    </div>
+
+                    <!-- Professional Interactive Map -->
+                    <div class="map-container">
+                        <div class="map-header">
+                            <h3><i class="fas fa-map"></i> <span data-key="map_title">Select Locations on Map</span>
+                            </h3>
+                            <div class="map-controls">
+                                <button type="button" class="btn btn-outline btn-sm" id="resetMapBtn">
+                                    <i class="fas fa-redo"></i> <span data-key="reset_map">Reset</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-sm" id="useMyLocationBtn">
+                                    <i class="fas fa-location-crosshairs"></i> <span data-key="use_my_location">Use My
+                                        Location</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Map Loading Placeholder -->
+                        <div class="map-loading">
+                            <div class="loading-spinner"></div>
+                            <p data-key="loading_map">Loading map...</p>
+                        </div>
+
+                        <!-- Leaflet Map Container -->
+                        <div id="map"></div>
+
+                        <!-- Map Instructions -->
+                        <div class="map-instructions">
+                            <i class="fas fa-info-circle"></i>
+                            <span data-key="map_instructions">Click on the map to set pickup (first click) and
+                                destination (second click)</span>
+                        </div>
+
+
+
+                        <!-- Map Info Panel -->
+                        <div class="map-info-panel" id="mapInfoPanel">
+                            <div class="info-header">
+                                <h4><i class="fas fa-route"></i> <span data-key="trip_info">Trip Information</span></h4>
+                                <button class="close-info" id="closeInfoBtn">&times;</button>
+                            </div>
+                            <div class="info-content">
+                                <div class="info-item">
+                                    <div class="info-icon">
+                                        <i class="fas fa-ruler"></i>
+                                    </div>
+                                    <div class="info-text">
+                                        <div class="info-label" data-key="distance">Distance</div>
+                                        <div class="info-value distance" id="distanceValue">0 km</div>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="info-text">
+                                        <div class="info-label" data-key="estimated_time">Estimated Time</div>
+                                        <div class="info-value" id="timeValue">0 min</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Area Notice -->
+                    <div class="service-area-notice">
+                        <i class="fas fa-check-circle"></i>
+                        <p>
+                            <strong data-key="service_available">Service Available in Ethiopia</strong>
+
+                            </span>
+                        </p>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="pickup"><i class="fas fa-circle"></i> <span data-key="pickup_location">Pickup
+                                    Location</span></label>
+                            <input type="text" id="pickup" data-key="pickup_placeholder"
+                                placeholder="Enter pickup address or click on map" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="destination"><i class="fas fa-map-pin"></i> <span
+                                    data-key="destination">Destination</span></label>
+                            <input type="text" id="destination" data-key="destination_placeholder"
+                                placeholder="Enter destination or click on map" required>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="notes"><i class="fas fa-sticky-note"></i> <span
+                                    data-key="additional_notes">Additional Notes (Optional)</span></label>
+                            <textarea id="notes" data-key="notes_placeholder"
+                                placeholder="Special instructions, luggage details, etc." rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="section-actions">
+                        <button type="button" class="btn btn-primary next-section" data-next="vehicle-section">
+                            <span data-key="continue_to_vehicle">Continue to Vehicle Selection</span> <i
+                                class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- 3. Choose Vehicle Section -->
+                <section class="booking-section booking-card" id="vehicle-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-car"></i> <span data-key="choose_vehicle_title">Choose Your Vehicle</span>
+                        </h2>
+                        <p data-key="choose_vehicle_subtitle">Select from our available vehicle fleet</p>
+                    </div>
+
+                    <!-- Real Vehicle Grid - Populated from Database -->
+                    <div class="vehicle-grid" id="vehicleGrid">
+                        <!-- Loading state -->
+                        <div class="vehicle-loading" id="vehicleLoading">
+                            <div class="loading-spinner"></div>
+                            <p>Loading available vehicles...</p>
+                            <small>🚗 Finding the perfect ride for you</small>
+                        </div>
+
+                        <!-- Error state -->
+                        <div class="vehicle-error hidden" id="vehicleError">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <p>Failed to load vehicles. Please try again.</p>
+                            <button onclick="loadAvailableVehicles()" class="btn btn-outline btn-sm">
+                                <i class="fas fa-refresh"></i> Retry
+                            </button>
+                        </div>
+
+                        <!-- No vehicles state -->
+                        <div class="no-vehicles hidden" id="noVehicles">
+                            <div class="no-vehicles-icon">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <h3>No Vehicles Available</h3>
+                            <p>Sorry, there are no vehicles available at the moment. Please try again later or contact
+                                support.</p>
+                            <button onclick="loadAvailableVehicles()" class="btn btn-primary">
+                                <i class="fas fa-refresh"></i> Refresh
+                            </button>
+                        </div>
+
+                        <!-- Real vehicles will be populated here by JavaScript -->
+                    </div>
+
+                    <!-- 4. Estimated Price Range -->
+                    <div class="price-range-card">
+                        <h3><i class="fas fa-chart-line"></i> <span data-key="estimated_price_range">Estimated Price
+                                Range</span></h3>
+                        <p class="price-note" data-key="price_negotiable_note">Prices are negotiable based on driver
+                            availability and traffic conditions
+                        </p>
+
+                        <div class="range-visual">
+                            <div class="range-labels">
+                                <span class="min-price">ETB 50</span>
+                                <span class="max-price">ETB 400</span>
+                            </div>
+                            <div class="range-bar">
+                                <div class="range-fill"></div>
+                            </div>
+                            <div class="range-indicator">
+                                <i class="fas fa-hand-point-up"></i>
+                                <span data-key="your_selected_range">Your selected vehicle range</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-actions">
+                        <button type="button" class="btn btn-outline prev-section" data-prev="trip-section">
+                            <i class="fas fa-arrow-left"></i> <span data-key="back">Back</span>
+                        </button>
+                        <button type="button" class="btn btn-primary next-section" data-next="price-section">
+                            <span data-key="continue_to_price">Continue to Price</span> <i
+                                class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- 5. Negotiable Pricing Section -->
+                <section class="booking-section booking-card" id="price-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-handshake"></i> <span data-key="negotiate_price_title">Negotiate Your
+                                Price</span></h2>
+                        <p data-key="negotiate_price_subtitle">Propose a fair price and negotiate with drivers</p>
+                    </div>
+
+                    <div class="negotiation-container">
+                        <div class="negotiation-card rider-card">
+                            <h3><i class="fas fa-user"></i> <span data-key="your_offer">Your Offer</span></h3>
+                            <div class="price-input-group">
+                                <span class="currency">ETB</span>
+                                <input type="number" id="proposedPrice" min="50" max="1000" value="120" step="10">
+                            </div>
+                            <p class="price-hint" data-key="price_hint">Enter your proposed fare (ETB 50 - 1000)</p>
+                            <button type="button" class="btn btn-primary send-offer">
+                                <i class="fas fa-paper-plane"></i> <span data-key="send_offer">Send Offer to
+                                    Drivers</span>
+                            </button>
+                        </div>
+
+                        <div class="negotiation-card driver-response">
+                            <h3><i class="fas fa-car"></i> <span data-key="driver_response">Driver Response</span></h3>
+                            <div class="response-message" id="driverResponse">
+                                <p data-key="send_offer_message">Send your offer to see driver responses</p>
+                            </div>
+
+                            <div class="counter-offer hidden" id="counterOffer">
+                                <p class="counter-label" data-key="driver_counter_offer">Driver Counter Offer:</p>
+                                <div class="counter-price">
+                                    <span class="currency">ETB</span>
+                                    <span id="counterAmount">150</span>
+                                </div>
+                                <div class="counter-actions">
+                                    <button type="button" class="btn btn-outline reject-offer">
+                                        <i class="fas fa-times"></i> <span data-key="reject_offer">Reject</span>
+                                    </button>
+                                    <button type="button" class="btn btn-primary accept-offer">
+                                        <i class="fas fa-check"></i> <span data-key="accept_offer">Accept ETB</span>
+                                        <span id="counterDisplay">150</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="agreed-price hidden" id="agreedPrice">
+                                <p class="agreed-label"><i class="fas fa-handshake"></i> <span
+                                        data-key="price_agreed">Price Agreed!</span></p>
+                                <div class="final-price">
+                                    <span class="currency">ETB</span>
+                                    <span id="finalAmount">120</span>
+                                </div>
+                                <p class="agreed-note" data-key="driver_arrive_note">Driver will arrive shortly</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. Safety & Support -->
+                    <div class="safety-features-card">
+                        <h3><i class="fas fa-shield-alt"></i> <span data-key="safety_support_title">Safety &
+                                Support</span></h3>
+                        <div class="safety-grid">
+                            <div class="safety-item">
+                                <div class="safety-icon verified">
+                                    <i class="fas fa-user-check"></i>
+                                </div>
+                                <div class="safety-text">
+                                    <h4 data-key="verified_driver">Verified Driver</h4>
+                                    <p data-key="verified_driver_desc">All drivers are verified and screened</p>
+                                </div>
+                            </div>
+                            <div class="safety-item">
+                                <div class="safety-icon sos">
+                                    <i class="fas fa-sos"></i>
+                                </div>
+                                <div class="safety-text">
+                                    <h4 data-key="emergency_sos">Emergency SOS</h4>
+                                    <p data-key="emergency_sos_desc">24/7 emergency support</p>
+                                </div>
+                            </div>
+                            <div class="safety-item">
+                                <div class="safety-icon share">
+                                    <i class="fas fa-share-alt"></i>
+                                </div>
+                                <div class="safety-text">
+                                    <h4 data-key="share_trip">Share Trip</h4>
+                                    <p data-key="share_trip_desc">Share your trip with loved ones</p>
+                                </div>
+                            </div>
+                            <div class="safety-item">
+                                <div class="safety-icon support">
+                                    <i class="fas fa-headset"></i>
+                                </div>
+                                <div class="safety-text">
+                                    <h4 data-key="support_24_7">24/7 Support</h4>
+                                    <p data-key="support_24_7_desc">Always here to help</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-actions">
+                        <button type="button" class="btn btn-outline prev-section" data-prev="vehicle-section">
+                            <i class="fas fa-arrow-left"></i> <span data-key="back">Back</span>
+                        </button>
+                        <button type="button" class="btn btn-primary next-section" data-next="payment-section">
+                            <span data-key="continue_to_payment">Continue to Payment</span> <i
+                                class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- 7. Payment Method Selection -->
+                <section class="booking-section booking-card" id="payment-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-credit-card"></i> <span data-key="payment_method_title">Payment
+                                Method</span></h2>
+                        <p data-key="payment_method_subtitle">Choose how you'd like to pay</p>
+                    </div>
+
+                    <div class="payment-methods">
+                        <div class="payment-card selected" data-method="telebirr">
+                            <div class="payment-icon telebirr-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span class="telebirr-badge">TeleBirr</span>
+                            </div>
+                            <div class="payment-info">
+                                <h3 data-key="payment_telebirr">TeleBirr Mobile Payment</h3>
+                                <p data-key="payment_telebirr_desc">Ethiopia's #1 mobile payment platform</p>
+                                <div class="telebirr-features">
+                                    <span class="feature-tag">✓ Instant</span>
+                                    <span class="feature-tag">✓ Secure</span>
+                                    <span class="feature-tag">✓ No fees</span>
+                                </div>
+                            </div>
+                            <div class="payment-select">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TeleBirr Payment Details -->
+                    <div class="telebirr-payment-card">
+                        <div class="telebirr-header">
+                            <div class="telebirr-logo">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>TeleBirr Payment</span>
+                            </div>
+                            <div class="telebirr-status" id="telebirrStatus">
+                                <span class="status-text">Ready to pay</span>
+                            </div>
+                        </div>
+
+                        <div class="telebirr-details">
+                            <div class="payment-amount-display">
+                                <div class="amount-label">Amount to Pay</div>
+                                <div class="amount-value">
+                                    <span class="currency">ETB</span>
+                                    <span id="telebirrAmount">180.00</span>
+                                </div>
+                            </div>
+
+                            <div class="telebirr-phone-input">
+                                <label for="telebirrPhone">
+                                    <i class="fas fa-phone"></i>
+                                    TeleBirr Phone Number
+                                </label>
+                                <input type="tel" id="telebirrPhone" placeholder="09XXXXXXXX" pattern="[0-9]{10}"
+                                    maxlength="10" required>
+                                <small class="input-hint">Enter your TeleBirr registered phone number</small>
+                            </div>
+
+                            <div class="telebirr-info-notice">
+                                <div class="info-badge">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>SECURE PAYMENT</span>
+                                </div>
+                                <p>Your payment is processed securely through TeleBirr.</p>
+                                <p><strong>Supported:</strong> All Ethiopian mobile numbers</p>
+                            </div>
+
+                            <button type="button" class="btn btn-telebirr" id="initiateTelebirrPayment">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>Pay with TeleBirr</span>
+                                <div class="payment-loader hidden">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 8. Digital Wallet -->
+                    <div class="wallet-card">
+                        <div class="wallet-header">
+                            <h3><i class="fas fa-wallet"></i> <span data-key="ridefair_wallet">RideFair Wallet</span>
+                            </h3>
+                            <div class="wallet-toggle">
+                                <span class="toggle-label" data-key="pay_from_wallet">Pay from wallet</span>
+                                <label class="switch">
+                                    <input type="checkbox" id="walletToggle">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="wallet-details hidden" id="walletDetails">
+                            <div class="wallet-balance">
+                                <p class="balance-label" data-key="current_balance">Current Balance</p>
+                                <p class="balance-amount">ETB <span id="walletBalance">1,250.00</span></p>
+                            </div>
+
+                            <div class="wallet-payment">
+                                <p class="payment-label" data-key="payment_amount">Payment Amount</p>
+                                <div class="payment-amount">
+                                    <span class="currency">ETB</span>
+                                    <span id="paymentAmount">120.00</span>
+                                </div>
+                            </div>
+
+                            <div class="wallet-after">
+                                <p class="after-label" data-key="balance_after_payment">Balance After Payment</p>
+                                <p class="after-amount">ETB <span id="remainingBalance">1,130.00</span></p>
+                            </div>
+
+                            <div class="wallet-confirm">
+                                <button type="button" class="btn btn-primary confirm-wallet">
+                                    <i class="fas fa-lock"></i> <span data-key="confirm_wallet_payment">Confirm Wallet
+                                        Payment</span>
+                                </button>
+                                <p class="wallet-note" data-key="wallet_secure_note">Your payment is secure and
+                                    encrypted</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-actions">
+                        <button type="button" class="btn btn-outline prev-section" data-prev="price-section">
+                            <i class="fas fa-arrow-left"></i> <span data-key="back">Back</span>
+                        </button>
+                        <button type="button" class="btn btn-primary next-section" data-next="summary-section">
+                            <span data-key="review_booking">Review Booking</span> <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- 9. Booking Summary -->
+                <section class="booking-section booking-card" id="summary-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-clipboard-check"></i> <span data-key="booking_summary_title">Booking
+                                Summary</span></h2>
+                        <p data-key="booking_summary_subtitle">Review your trip details before confirming</p>
+                    </div>
+
+                    <div class="summary-card">
+                        <div class="summary-section">
+                            <h3><i class="fas fa-route"></i> <span data-key="trip_details">Trip Details</span></h3>
+                            <div class="summary-item">
+                                <span class="item-label" data-key="pickup">Pickup:</span>
+                                <span class="item-value" id="summaryPickup">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="item-label" data-key="destination_label">Destination:</span>
+                                <span class="item-value" id="summaryDestination">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="item-label" data-key="notes">Notes:</span>
+                                <span class="item-value" id="summaryNotes" data-key="none">None</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="item-label" data-key="distance">Distance:</span>
+                                <span class="item-value" id="summaryDistance">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="item-label" data-key="estimated_time">Estimated Time:</span>
+                                <span class="item-value" id="summaryTime">-</span>
+                            </div>
+                        </div>
+
+                        <div class="summary-section">
+                            <h3><i class="fas fa-car"></i> <span data-key="vehicle_details">Vehicle Details</span></h3>
+                            <div class="summary-item">
+                                <span class="item-label" data-key="vehicle_type">Vehicle Type:</span>
+                                <span class="item-value" id="summaryVehicle">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="item-label" data-key="price_range">Price Range:</span>
+                                <span class="item-value" id="summaryPriceRange">-</span>
+                            </div>
+                        </div>
+
+                        <div class="summary-section">
+                            <h3><i class="fas fa-money-check-alt"></i> <span data-key="payment_details">Payment
+                                    Details</span></h3>
+                            <div class="summary-item">
+                                <span class="item-label" data-key="agreed_price">Agreed Price:</span>
+                                <span class="item-value" id="summaryPrice">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="item-label" data-key="payment_method">Payment Method:</span>
+                                <span class="item-value" id="summaryPayment">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="item-label" data-key="wallet_payment">Wallet Payment:</span>
+                                <span class="item-value" id="summaryWallet" data-key="no">No</span>
+                            </div>
+                        </div>
+
+                        <div class="summary-total">
+                            <div class="total-item">
+                                <span class="total-label" data-key="total_fare">Total Fare</span>
+                                <span class="total-amount" id="summaryTotal">ETB 0.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="terms-agreement">
+                        <label class="checkbox">
+                            <input type="checkbox" id="agreeTerms" required>
+                            <span class="checkmark"></span>
+                            <span class="terms-text" data-key="terms_agreement">
+                                I agree to the <a href="#" data-key="terms_of_service">Terms of Service</a> and
+                                understand that prices are
+                                negotiable and may vary based on traffic conditions.
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="section-actions">
+                        <button type="button" class="btn btn-outline prev-section" data-prev="payment-section">
+                            <i class="fas fa-arrow-left"></i> <span data-key="back">Back</span>
+                        </button>
+                        <button type="submit" class="btn btn-primary confirm-booking">
+                            <i class="fas fa-check-circle"></i> <span data-key="confirm_booking">Confirm Booking</span>
+                        </button>
+                    </div>
+                </section>
+            </form>
+        </div>
+    </main>
+
+    <!-- 10. Booking Confirmation Modal -->
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-check-circle"></i> <span data-key="ride_booked_success">Ride Booked
+                        Successfully!</span></h3>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="confirmation-animation">
+                    <div class="checkmark-circle">
+                        <i class="fas fa-check"></i>
+                    </div>
+                </div>
+
+                <div class="confirmation-details">
+                    <p class="confirmation-message" data-key="booking_confirmed_message">Your ride has been confirmed! A
+                        driver will arrive shortly.</p>
+
+                    <div class="driver-info">
+                        <div class="driver-avatar">A</div>
+                        <div class="driver-details">
+                            <h4>Alex</h4>
+                            <div class="driver-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.98</span>
+                            </div>
+                        </div>
+                        <div class="vehicle-plate">
+                            <span>3-A-12345</span>
+                        </div>
+                    </div>
+
+                    <div class="safety-message">
+                        <i class="fas fa-shield-alt"></i>
+                        <p data-key="safety_priority_message">Your safety is our priority. Share your trip details with
+                            friends or family for added
+                            security.</p>
+                    </div>
+
+                    <div class="estimated-arrival">
+                        <i class="fas fa-clock"></i>
+                        <p><span data-key="estimated_arrival">Estimated arrival:</span> <strong>5-7 <span
+                                    data-key="minutes">minutes</span></strong></p>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <a href="index.html" class="btn btn-outline" data-key="back_to_home">Back to Home</a>
+                    <button class="btn btn-primary" id="viewTripDetails">
+                        <i class="fas fa-map-marked-alt"></i> <span data-key="view_trip_details">View Trip
+                            Details</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Booking Footer -->
+    <div class="mobile-booking-footer">
+        <div class="booking-summary-mobile">
+            <div class="mobile-price">
+                <span class="price-label" data-key="total_fare">Total Fare</span>
+                <span class="price-amount" id="mobileTotal">ETB 0.00</span>
+            </div>
+            <button class="btn btn-primary btn-block confirm-mobile" disabled>
+                <span data-key="continue_to_vehicle_mobile">Continue to Vehicle</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-taxi"></i>
+                        </div>
+                        <span data-key="site_name">RideFair</span>
+                    </a>
+
+                    <p class="footer-tagline" data-key="footer_tagline">Fair rides. Fair prices. Worldwide.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title" data-key="footer_riders">Riders</h4>
+                    <div class="footer-links">
+                        <a href="index.html#how-it-works" class="footer-link" data-key="footer_how_it_works">How it
+                            works</a>
+                        <a href="book.html" class="footer-link" data-key="footer_fare_estimate">Fare estimate</a>
+                        <a href="index.html#cities" class="footer-link" data-key="footer_cities">Cities</a>
+                        <a href="safety.html" class="footer-link" data-key="footer_safety">Safety</a>
+                        <a href="contact.html" class="footer-link" data-key="footer_help_center">Help Center</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title" data-key="footer_drivers">Drivers</h4>
+                    <div class="footer-links">
+                        <a href="drivers.html" class="footer-link" data-key="footer_become_driver">Become a driver</a>
+                        <a href="drivers.html" class="footer-link" data-key="footer_driver_requirements">Driver
+                            requirements</a>
+                        <a href="#" class="footer-link" data-key="footer_driver_portal">Driver portal</a>
+                        <a href="contact.html" class="footer-link" data-key="footer_driver_support">Driver support</a>
+                        <a href="drivers.html" class="footer-link" data-key="footer_earnings">Earnings</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title" data-key="footer_company">Company</h4>
+                    <div class="footer-links">
+                        <a href="about.html" class="footer-link" data-key="footer_about_us">About us</a>
+                        <a href="#" class="footer-link" data-key="footer_careers">Careers</a>
+                        <a href="#" class="footer-link" data-key="footer_press">Press</a>
+                        <a href="#" class="footer-link" data-key="footer_blog">Blog</a>
+                        <a href="#" class="footer-link" data-key="footer_brand_guidelines">Brand guidelines</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title" data-key="footer_legal">Legal</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link" data-key="footer_privacy_policy">Privacy Policy</a>
+                        <a href="#" class="footer-link" data-key="footer_terms_of_service">Terms of Service</a>
+                        <a href="#" class="footer-link" data-key="footer_cookie_policy">Cookie Policy</a>
+                        <a href="#" class="footer-link" data-key="footer_accessibility">Accessibility</a>
+                        <a href="#" class="footer-link" data-key="footer_licenses">Licenses</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; <span id="currentYear"></span> <span data-key="site_name">RideFair</span>. <span
+                            data-key="footer_all_rights_reserved">All rights reserved.</span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </button>
+
+    <!-- Leaflet JS for OpenStreetMap -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        // Check authentication before loading the page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check if user is logged in
+            const token = localStorage.getItem('authToken');
+            const userData = localStorage.getItem('userData');
+
+            if (!token || !userData) {
+                // Redirect to auth page if not logged in
+                alert('Please log in to book a ride.');
+                window.location.href = 'auth.html';
+                return;
+            }
+
+            // Display user info in header
+            const user = JSON.parse(userData);
+            updateHeaderForLoggedInUser(user);
+        });
+
+        function updateHeaderForLoggedInUser(user) {
+            // Update the sign up button to show user name and logout
+            const signupBtn = document.querySelector('.btn-signup');
+            if (signupBtn) {
+                signupBtn.innerHTML = `
+                    <i class="fas fa-user"></i> ${user.firstName}
+                    <div class="user-dropdown">
+                        <button onclick="logout()" class="logout-btn">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                `;
+                signupBtn.classList.add('user-menu');
+            }
+        }
+    </script>
+    <script src="book.js"></script>
+    <script src="api-integration.js"></script>
+</body>
+
+</html>

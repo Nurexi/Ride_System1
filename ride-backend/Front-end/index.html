@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-key="site_title">RideFair - Premium Mobility Platform</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- 1. HEADER -->
+  <header class="header glass-effect" id="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="#" class="logo">
+          <div class="logo-icon">
+            <i class="fas fa-taxi"></i>
+          </div>
+          <span data-key="site_name">RideFair</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav">
+          <div class="nav-links">
+            <a href="#hero" class="nav-link" data-key="nav_home">Home</a>
+            <a href="about.html" class="nav-link" data-key="nav_about">About</a>
+            <a href="book.html" class="nav-link" data-key="nav_book">Book</a>
+
+            <a href="#services" class="nav-link" data-key="nav_services">Services</a>
+            <a href="safety.html" class="nav-link" data-key="nav_safety">Safety</a>
+            <a href="contact.html" class="nav-link" data-key="nav_contact">Contact</a>
+          </div>
+
+          <!-- Language Switcher -->
+          <div class="language-switcher">
+            <button class="language-toggle" id="languageToggle" aria-label="Select language">
+              <span class="current-lang" id="currentLang">EN</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="language-dropdown" id="languageDropdown">
+              <button class="language-option" data-lang="en">
+                <span class="lang-code">EN</span>
+                <span class="lang-name">English</span>
+              </button>
+              <button class="language-option" data-lang="am">
+                <span class="lang-code">አማ</span>
+                <span class="lang-name">Amharic</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="nav-actions">
+            <a href="auth.html" class="btn btn-primary btn-signup" data-key="nav_sign_up">Sign Up</a>
+          </div>
+        </nav>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu glass-effect" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <div class="logo">
+          <div class="logo-icon">
+            <i class="fas fa-taxi"></i>
+          </div>
+          <span data-key="site_name">RideFair</span>
+        </div>
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <nav class="mobile-nav-links">
+        <a href="#hero" class="mobile-nav-link" data-key="nav_home">Home</a>
+
+        <a href="about.html" class="mobile-nav-link" data-key="nav_about">About</a>
+        <a href="book.html" class="nav-link" data-key="nav_book">Book</a>
+        <a href="#services" class="mobile-nav-link" data-key="nav_services">Services</a>
+        <a href="safety.html" class="mobile-nav-link" data-key="nav_safety">Safety</a>
+        <a href="contact.html" class="mobile-nav-link" data-key="nav_contact">Contact</a>
+      </nav>
+
+      <!-- Mobile Language Switcher -->
+      <div class="mobile-language-switcher">
+        <div class="mobile-language-options">
+          <button class="mobile-language-option active" data-lang="en">
+            <span class="lang-code">EN</span>
+            <span class="lang-name">English</span>
+          </button>
+          <button class="mobile-language-option" data-lang="am">
+            <span class="lang-code">አማ</span>
+            <span class="lang-name">Amharic</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="mobile-menu-actions">
+        <a href="auth.html" class="btn btn-primary btn-block btn-signup" data-key="nav_sign_up">Sign Up</a>
+      </div>
+    </div>
+  </header>
+  <!-- 2. HERO SECTION -->
+  <section class="hero" id="hero">
+    <!-- Added particle canvas container for animated particle background -->
+    <canvas id="particleCanvas" class="particle-canvas"></canvas>
+    <div class="hero-background"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <!-- Enhanced headers with bold, nested structure for visual hierarchy -->
+          <h1 class="hero-title">
+            <span class="bold-primary" data-key="hero_title_1">Fair Rides.</span><br />
+            <span class="bold-secondary" data-key="hero_title_2">Fair Prices.</span>
+          </h1>
+          <p class="hero-subtitle" data-key="hero_subtitle">
+            A global mobility platform where riders set their price and choose
+            their driver. Premium mobility that empowers everyone.
+          </p>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number" data-count="700">0</span>
+              <span class="stat-label" data-key="stat_cities">Cities</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-count="300">0</span>
+              <span class="stat-label" data-key="stat_downloads">Million Downloads</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-count="48">0</span>
+              <span class="stat-label" data-key="stat_countries">Countries</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="phone-mockup">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <div class="phone-container">
+                  <div class="phone-header">
+                    <div class="phone-logo" data-key="site_name">
+                      RideFair
+                    </div>
+                    <div class="phone-tagline" data-key="phone_tagline">
+                      Your ride, your price
+                    </div>
+                  </div>
+                  <div class="phone-content">
+                    <div class="location-card">
+                      <div class="card-label" data-key="phone_location_label">
+                        Current Location
+                      </div>
+                      <div class="location-text">Kombolcha</div>
+                    </div>
+                    <div class="fare-card">
+                      <div class="card-label" data-key="phone_fare_label">
+                        Estimated Fare
+                      </div>
+                      <div class="fare-display">
+                        <span class="dollar-sign">$</span>
+                        <span id="fareAmount" class="fare-amount">12.50</span>
+                      </div>
+                      <div id="fareSlider" class="fare-slider">
+                        <div id="fareProgress" class="fare-progress"></div>
+                        <div id="fareThumb" class="fare-thumb"></div>
+                      </div>
+                    </div>
+                    <div class="drivers-card">
+                      <div class="card-label" data-key="phone_drivers_label">
+                        Available Drivers
+                      </div>
+                      <div class="drivers-list">
+                        <div class="driver-item">
+                          <div class="driver-info">
+                            <div class="driver-avatar">A</div>
+                            <div class="driver-details">
+                              <div class="driver-name">Alex</div>
+                              <div class="driver-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.98</span>
+                              </div>
+                            </div>
+                          </div>
+                          <button class="driver-select-btn" data-key="phone_select_button">
+                            Select
+                          </button>
+                        </div>
+                        <div class="driver-item">
+                          <div class="driver-info">
+                            <div class="driver-avatar">S</div>
+                            <div class="driver-details">
+                              <div class="driver-name">Sam</div>
+                              <div class="driver-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.95</span>
+                              </div>
+                            </div>
+                          </div>
+                          <button class="driver-select-btn" data-key="phone_select_button">
+                            Select
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. CATEGORIES SECTION -->
+  <section class="categories" id="categories">
+    <div class="container">
+      <!-- Enhanced section title with nested bold structure -->
+      <h2 class="section-title reveal">
+        <span class="bold-primary" data-key="categories_title_1">Top</span>
+        <span class="bold-secondary" data-key="categories_title_2">Categories</span>
+      </h2>
+      <p class="section-subtitle reveal" data-key="categories_subtitle">
+        Choose from our premium ride categories designed for every need and
+        occasion
+      </p>
+
+      <div class="categories-grid">
+        <div class="category-card reveal">
+          <div class="category-icon-container">
+            <div class="category-icon">
+              <i class="fas fa-car"></i>
+            </div>
+          </div>
+          <h3 class="category-title" data-key="category_economy">Economy</h3>
+          <p class="category-description" data-key="category_economy_desc">
+            Affordable rides without compromising on safety and comfort.
+          </p>
+          <a href="#" class="category-link" data-key="learn_more">Learn More <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="category-card reveal">
+          <div class="category-icon-container">
+            <div class="category-icon">
+              <i class="fas fa-couch"></i>
+            </div>
+          </div>
+          <h3 class="category-title" data-key="category_comfort">Comfort</h3>
+          <p class="category-description" data-key="category_comfort_desc">
+            Spacious vehicles with extra legroom and premium amenities.
+          </p>
+          <a href="#" class="category-link" data-key="learn_more">Learn More <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="category-card reveal">
+          <div class="category-icon-container">
+            <div class="category-icon">
+              <i class="fas fa-briefcase"></i>
+            </div>
+          </div>
+          <h3 class="category-title" data-key="category_business">
+            Business
+          </h3>
+          <p class="category-description" data-key="category_business_desc">
+            Professional rides for business meetings and corporate travel.
+          </p>
+          <a href="#" class="category-link" data-key="learn_more">Learn More <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="category-card reveal">
+          <div class="category-icon-container">
+            <div class="category-icon">
+              <i class="fas fa-road"></i>
+            </div>
+          </div>
+          <h3 class="category-title" data-key="category_intercity">
+            Intercity
+          </h3>
+          <p class="category-description" data-key="category_intercity_desc">
+            Comfortable long-distance travel between cities with fixed
+            pricing.
+          </p>
+          <a href="#" class="category-link" data-key="learn_more">Learn More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. SERVICES SECTION -->
+  <section class="services" id="services">
+    <div class="container">
+      <!-- Enhanced section title with nested bold structure -->
+      <h2 class="section-title reveal">
+        <span class="bold-primary" data-key="services_title_1">Our</span>
+        <span class="bold-secondary" data-key="services_title_2">Services</span>
+      </h2>
+      <p class="section-subtitle reveal" data-key="services_subtitle">
+        Comprehensive mobility solutions for every journey, anytime, anywhere
+      </p>
+
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <i class="fas fa-taxi"></i>
+          </div>
+          <h3 class="service-title" data-key="service_ride_hailing">
+            Ride Hailing
+          </h3>
+          <p class="service-description" data-key="service_ride_hailing_desc">
+            Book a ride in seconds with our advanced matching algorithm and
+            transparent pricing.
+          </p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+          <h3 class="service-title" data-key="service_scheduled_rides">
+            Scheduled Rides
+          </h3>
+          <p class="service-description" data-key="service_scheduled_rides_desc">
+            Plan your trips in advance with guaranteed availability and fixed
+            pricing.
+          </p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3 class="service-title" data-key="service_ride_sharing">
+            Ride Sharing
+          </h3>
+          <p class="service-description" data-key="service_ride_sharing_desc">
+            Share your ride with others heading in the same direction and
+            split the cost.
+          </p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <h3 class="service-title" data-key="service_corporate_travel">
+            Corporate Travel
+          </h3>
+          <p class="service-description" data-key="service_corporate_travel_desc">
+            Professional transportation solutions for business meetings and
+            corporate events.
+          </p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <i class="fas fa-plane"></i>
+          </div>
+          <h3 class="service-title" data-key="service_airport_transfers">
+            Airport Transfers
+          </h3>
+          <p class="service-description" data-key="service_airport_transfers_desc">
+            Reliable airport pickup and drop-off services with real-time
+            flight tracking.
+          </p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <i class="fas fa-route"></i>
+          </div>
+          <h3 class="service-title" data-key="service_intercity_travel">
+            Intercity Travel
+          </h3>
+          <p class="service-description" data-key="service_intercity_travel_desc">
+            Comfortable long-distance rides between cities with fixed pricing
+            and amenities.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. HOW IT WORKS SECTION -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <!-- Enhanced section title with nested bold structure -->
+      <h2 class="section-title reveal">
+        <span class="bold-primary" data-key="how_it_works_title_1">How It</span>
+        <span class="bold-secondary" data-key="how_it_works_title_2">Works</span>
+      </h2>
+      <p class="section-subtitle reveal" data-key="how_it_works_subtitle">
+        A simple, transparent process for both riders and drivers
+      </p>
+
+      <div class="steps-container">
+        <div class="step reveal">
+          <div class="step-number">1</div>
+          <div class="step-icon-circle">
+            <div class="step-icon">
+              <i class="fas fa-map-marked-alt"></i>
+            </div>
+          </div>
+          <h3 class="step-title" data-key="step_1_title">Set Your Route</h3>
+          <p class="step-description" data-key="step_1_desc">
+            Enter your pickup and destination locations in the app.
+          </p>
+        </div>
+
+        <div class="step reveal">
+          <div class="step-number">2</div>
+          <div class="step-icon-circle">
+            <div class="step-icon">
+              <i class="fas fa-dollar-sign"></i>
+            </div>
+          </div>
+          <h3 class="step-title" data-key="step_2_title">Set Your Price</h3>
+          <p class="step-description" data-key="step_2_desc">
+            Suggest a fare that works for you, not what the app tells you.
+          </p>
+        </div>
+
+        <div class="step reveal">
+          <div class="step-number">3</div>
+          <div class="step-icon-circle">
+            <div class="step-icon">
+              <i class="fas fa-user-friends"></i>
+            </div>
+          </div>
+          <h3 class="step-title" data-key="step_3_title">Choose a Driver</h3>
+          <p class="step-description" data-key="step_3_desc">
+            See driver profiles, ratings, and counteroffers, then choose who
+            to ride with.
+          </p>
+        </div>
+
+        <div class="step reveal">
+          <div class="step-number">4</div>
+          <div class="step-icon-circle">
+            <div class="step-icon">
+              <i class="fas fa-road"></i>
+            </div>
+          </div>
+          <h3 class="step-title" data-key="step_4_title">Ride Safely</h3>
+          <p class="step-description" data-key="step_4_desc">
+            Track your trip in real-time with safety features and support.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. DRIVER CTA SECTION -->
+  <section class="driver-cta" id="driver-cta">
+    <div class="container">
+      <div class="driver-content">
+        <!-- Enhanced section title with nested bold structure -->
+        <h2 class="section-title reveal">
+          <span class="bold-primary" data-key="drive_title_1">Drive</span>
+          <span class="bold-secondary" data-key="drive_title_2">With Us</span>
+        </h2>
+        <p class="section-subtitle reveal" data-key="drive_subtitle">
+          Earn money on your schedule with fair commissions and flexible hours
+        </p>
+
+        <div class="driver-benefits">
+          <div class="benefit-card reveal">
+            <div class="benefit-icon">
+              <i class="fas fa-money-bill-wave"></i>
+            </div>
+            <div class="benefit-text">
+              <h3 data-key="benefit_1_title">Higher Earnings</h3>
+              <p data-key="benefit_1_desc">
+                Keep more of what you earn with our industry-low commission
+                rates and surge pricing.
+              </p>
+            </div>
+          </div>
+
+          <div class="benefit-card reveal">
+            <div class="benefit-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="benefit-text">
+              <h3 data-key="benefit_2_title">Flexible Schedule</h3>
+              <p data-key="benefit_2_desc">
+                Drive whenever you want - no shifts or minimum hours required.
+                Be your own boss.
+              </p>
+            </div>
+          </div>
+
+          <div class="benefit-card reveal">
+            <div class="benefit-icon">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <div class="benefit-text">
+              <h3 data-key="benefit_3_title">Fair Negotiation</h3>
+              <p data-key="benefit_3_desc">
+                Negotiate fares directly with passengers for a fair deal that
+                works for both parties.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-button">
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. BUSINESS SECTION -->
+  <section class="business" id="business">
+    <div class="container">
+      <!-- Enhanced section title with nested bold structure -->
+      <h2 class="section-title reveal">
+        <span class="bold-primary" data-key="business_title_1">Solutions for</span>
+        <span class="bold-secondary" data-key="business_title_2">Business</span>
+      </h2>
+      <p class="section-subtitle reveal" data-key="business_subtitle">
+        Reliable transportation solutions for companies of all sizes
+      </p>
+
+      <div class="business-grid">
+        <div class="business-card reveal">
+          <div class="business-icon">
+            <i class="fas fa-file-invoice-dollar"></i>
+          </div>
+          <h3 class="business-title" data-key="business_simplified_billing">
+            Simplified Billing
+          </h3>
+          <p class="business-description" data-key="business_simplified_billing_desc">
+            Single monthly invoice with detailed usage reports and expense
+            tracking.
+          </p>
+        </div>
+
+        <div class="business-card reveal">
+          <div class="business-icon">
+            <i class="fas fa-sliders-h"></i>
+          </div>
+          <h3 class="business-title" data-key="business_custom_policies">
+            Custom Policies
+          </h3>
+          <p class="business-description" data-key="business_custom_policies_desc">
+            Set ride policies, spending limits, and approved services for your
+            team.
+          </p>
+        </div>
+
+        <div class="business-card reveal">
+          <div class="business-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="business-title" data-key="business_usage_analytics">
+            Usage Analytics
+          </h3>
+          <p class="business-description" data-key="business_usage_analytics_desc">
+            Track transportation spending and optimize your company's mobility
+            budget.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. FOOTER -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-col">
+          <a href="#" class="logo">
+            <div class="logo-icon">
+              <i class="fas fa-taxi"></i>
+            </div>
+            <span data-key="site_name">RideFair</span>
+          </a>
+
+          <p class="footer-tagline" data-key="footer_tagline">
+            Fair rides. Fair prices. Worldwide.
+          </p>
+          <div class="footer-social">
+            <a href="#" class="social-link" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title" data-key="footer_riders">Riders</h4>
+          <div class="footer-links">
+            <a href="#" class="footer-link" data-key="footer_how_it_works">How it works</a>
+            <a href="#" class="footer-link" data-key="footer_fare_estimate">Fare estimate</a>
+            <a href="#" class="footer-link" data-key="footer_cities">Cities</a>
+            <a href="#" class="footer-link" data-key="footer_safety">Safety</a>
+            <a href="#" class="footer-link" data-key="footer_help_center">Help Center</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title" data-key="footer_drivers">Drivers</h4>
+          <div class="footer-links">
+            <a href="#" class="footer-link" data-key="footer_become_driver">Become a driver</a>
+            <a href="#" class="footer-link" data-key="footer_driver_requirements">Driver requirements</a>
+            <a href="#" class="footer-link" data-key="footer_driver_portal">Driver portal</a>
+            <a href="#" class="footer-link" data-key="footer_driver_support">Driver support</a>
+            <a href="#" class="footer-link" data-key="footer_earnings">Earnings</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title" data-key="footer_company">Company</h4>
+          <div class="footer-links">
+            <a href="#" class="footer-link" data-key="footer_about_us">About us</a>
+            <a href="#" class="footer-link" data-key="footer_careers">Careers</a>
+            <a href="#" class="footer-link" data-key="footer_press">Press</a>
+            <a href="#" class="footer-link" data-key="footer_blog">Blog</a>
+            <a href="#" class="footer-link" data-key="footer_brand_guidelines">Brand guidelines</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title" data-key="footer_legal">Legal</h4>
+          <div class="footer-links">
+            <a href="#" class="footer-link" data-key="footer_privacy_policy">Privacy Policy</a>
+            <a href="#" class="footer-link" data-key="footer_terms_of_service">Terms of Service</a>
+            <a href="#" class="footer-link" data-key="footer_cookie_policy">Cookie Policy</a>
+            <a href="#" class="footer-link" data-key="footer_accessibility">Accessibility</a>
+            <a href="#" class="footer-link" data-key="footer_licenses">Licenses</a>
+            <a href="admin.html" class="footer-link" style="opacity: 0.5; font-size: 0.8rem">Admin</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          <p>
+            &copy; <span id="currentYear"></span>
+            <span data-key="site_name">RideFair</span>.
+            <span data-key="footer_all_rights_reserved">All rights reserved.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DRIVER MODAL -->
+  <div class="modal" id="driverModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 data-key="modal_become_driver_title">Become a RideFair Driver</h3>
+        <button class="modal-close" id="modalClose" aria-label="Close modal">
+          &times;
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="driverForm">
+          <div class="form-group">
+            <label for="fullName" data-key="modal_full_name">Full Name</label>
+            <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name"
+              data-key="modal_full_name_placeholder" />
+          </div>
+          <div class="form-group">
+            <label for="email" data-key="modal_email">Email Address</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email"
+              data-key="modal_email_placeholder" />
+          </div>
+          <div class="form-group">
+            <label for="phone" data-key="modal_phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number"
+              data-key="modal_phone_placeholder" />
+          </div>
+          <div class="form-group">
+            <label for="city" data-key="modal_city">City</label>
+            <input type="text" id="city" name="city" required placeholder="Enter your city"
+              data-key="modal_city_placeholder" />
+          </div>
+          <div class="form-group">
+            <label for="vehicleType" data-key="modal_vehicle_type">Vehicle Type</label>
+            <select id="vehicleType" name="vehicleType" required>
+              <option value="" data-key="modal_select_vehicle">
+                Select vehicle type
+              </option>
+              <option value="car" data-key="modal_vehicle_car">Car</option>
+              <option value="suv" data-key="modal_vehicle_suv">SUV</option>
+              <option value="van" data-key="modal_vehicle_van">Van</option>
+              <option value="motorcycle" data-key="modal_vehicle_motorcycle">
+                Motorcycle
+              </option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" data-key="modal_submit_application">
+            Submit Application
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dark/Light Mode Toggle -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+    <i class="fas fa-moon" id="themeIcon"></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

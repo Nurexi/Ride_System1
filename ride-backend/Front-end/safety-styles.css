@@ -1,0 +1,687 @@
+/* ============================================
+   Safety Page Specific Styles
+   ============================================ */
+
+/* 1. SAFETY HEADER */
+.safety-header {
+  padding: 150px 0 80px;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.95),
+      rgba(255, 255, 255, 0.98)
+    ),
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(193, 241, 29, 0.1) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 90% 60%,
+      rgba(193, 241, 29, 0.05) 0%,
+      transparent 40%
+    );
+  position: relative;
+  overflow: hidden;
+}
+
+.safety-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--neon-green),
+    transparent
+  );
+}
+
+.safety-header-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.safety-main-title {
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.safety-subtitle {
+  font-size: 1.3rem;
+  color: var(--dark-gray);
+  opacity: 0.8;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* 2. SAFETY FEATURES SECTION */
+.safety-features-section {
+  background-color: var(--white);
+  padding: 100px 0;
+  margin-top: 65px;
+}
+
+.safety-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.safety-feature-card {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-bounce);
+  border: 1px solid var(--medium-gray);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.safety-feature-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--neon-green), #a8d600);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.safety-feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-xl), 0 0 20px rgba(193, 241, 29, 0.1);
+  border-color: var(--neon-green);
+}
+
+.safety-feature-card:hover::before {
+  transform: scaleX(1);
+}
+
+.safety-feature-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 25px;
+  background: linear-gradient(
+    135deg,
+    rgba(193, 241, 29, 0.1),
+    rgba(193, 241, 29, 0.05)
+  );
+  color: var(--neon-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  transition: var(--transition-smooth);
+}
+
+.safety-feature-card:hover .safety-feature-icon {
+  background: linear-gradient(135deg, var(--neon-green), #a8d600);
+  color: var(--white);
+  transform: scale(1.1);
+}
+
+.safety-feature-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: var(--dark-charcoal);
+}
+
+.safety-feature-desc {
+  font-size: 0.95rem;
+  color: var(--dark-gray);
+  opacity: 0.7;
+  line-height: 1.6;
+}
+
+/* 3. DURING YOUR RIDE SECTION */
+.safety-tips-section {
+  background-color: var(--light-gray);
+  padding: 100px 0;
+}
+
+.safety-tips-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.safety-tips-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.safety-tip {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.tip-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(193, 241, 29, 0.1);
+  color: var(--neon-green);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  transition: var(--transition-smooth);
+}
+
+.safety-tip:hover .tip-icon {
+  background: rgba(193, 241, 29, 0.2);
+  transform: scale(1.1);
+}
+
+.tip-content h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--dark-charcoal);
+}
+
+.tip-content p {
+  color: var(--dark-gray);
+  opacity: 0.7;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.safety-tips-visual {
+  animation: float 6s ease-in-out infinite;
+}
+
+.safety-phone-mockup {
+  position: relative;
+  width: 300px;
+  height: 500px;
+  margin: 0 auto;
+}
+
+.safety-phone-mockup .phone-frame {
+  width: 100%;
+  height: 550px;
+  background-color: #0f0d0d;
+  border-radius: 30px;
+  padding: 14px;
+  box-shadow: var(--shadow-xl), 0 0 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #778bb3;
+}
+
+.safety-phone-ui {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.safety-phone-header {
+  padding: 25px;
+  background: linear-gradient(135deg, var(--neon-green), #a8d600);
+  color: #000;
+  font-weight: 700;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.safety-phone-content {
+  flex: 1;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.safety-status-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: var(--soft-gray);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--medium-gray);
+  transition: var(--transition-smooth);
+}
+
+.safety-status-item.active {
+  background: rgba(193, 241, 29, 0.1);
+  border-color: var(--neon-green);
+}
+
+.safety-status-item i {
+  color: var(--neon-green);
+  font-size: 1.2rem;
+  width: 24px;
+}
+
+.safety-status-item span {
+  font-weight: 600;
+  color: var(--dark-charcoal);
+}
+
+.safety-phone-btn {
+  margin: 25px;
+  padding: 15px;
+  background: linear-gradient(135deg, var(--neon-green), #a8d600);
+  color: #000;
+  border: none;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.safety-phone-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(193, 241, 29, 0.3);
+}
+
+/* 4. EMERGENCY SUPPORT SECTION */
+.emergency-section {
+  padding: 100px 0;
+  background-color: var(--white);
+}
+
+.emergency-card {
+  background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+  border-radius: var(--radius-xl);
+  padding: 60px 40px;
+  text-align: center;
+  box-shadow: var(--shadow-xl), 0 0 40px rgba(193, 241, 29, 0.2);
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--neon-green);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.emergency-card::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    45deg,
+    var(--neon-green),
+    transparent,
+    var(--neon-green)
+  );
+  z-index: -1;
+  border-radius: inherit;
+  animation: neon-pulse 3s infinite;
+}
+
+.emergency-icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 30px;
+  background: rgba(193, 241, 29, 0.1);
+  color: var(--neon-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  border: 2px solid var(--neon-green);
+}
+
+.emergency-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: var(--white);
+}
+
+.emergency-desc {
+  font-size: 1.1rem;
+  color: var(--soft-gray);
+  opacity: 0.8;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.emergency-contacts {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.contact-method {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--neon-green);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.contact-method i {
+  font-size: 1.3rem;
+}
+
+.emergency-btn {
+  font-size: 1.1rem;
+  padding: 16px 40px;
+  background: var(--neon-green);
+  color: #000;
+  border: none;
+}
+
+.emergency-btn:hover {
+  background: #a8d600;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(193, 241, 29, 0.4);
+}
+
+/* 5. CALL TO ACTION SECTION */
+.safety-cta-section {
+  padding: 100px 0;
+  background: linear-gradient(
+    135deg,
+    var(--light-gray) 0%,
+    var(--soft-gray) 100%
+  );
+  border-top: 1px solid var(--medium-gray);
+  border-bottom: 1px solid var(--medium-gray);
+}
+
+.safety-cta-content {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.btn-large {
+  padding: 16px 40px;
+  font-size: 1.1rem;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 1024px) {
+  .safety-tips-content {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .safety-main-title {
+    font-size: 3.5rem;
+  }
+
+  .emergency-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .safety-header {
+    padding: 120px 0 60px;
+  }
+
+  .safety-main-title {
+    font-size: 2.8rem;
+  }
+
+  .safety-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .safety-features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .emergency-card {
+    padding: 40px 20px;
+  }
+
+  .emergency-contacts {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-buttons .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .safety-main-title {
+    font-size: 2.2rem;
+  }
+
+  .safety-feature-card,
+  .emergency-card {
+    padding: 30px 20px;
+  }
+
+  .safety-phone-mockup {
+    width: 250px;
+    height: 450px;
+  }
+}
+/* ============================================
+   DARK MODE STYLES
+   ============================================ */
+
+.dark-mode {
+  /* Override CSS variables for dark mode */
+  --white: #0f0f0f;
+  --light-gray: #1a1a1a;
+  --soft-gray: #222222;
+  --medium-gray: #333333;
+  --dark-gray: #cccccc;
+  --dark-charcoal: #ffffff;
+  --shadow-color: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(26, 26, 26, 0.95);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+/* Dark mode specific styles for safety page */
+.dark-mode body {
+  background-color: var(--white);
+  color: var(--dark-charcoal);
+}
+
+.dark-mode .safety-header {
+  background: linear-gradient(rgba(15, 15, 15, 0.95), rgba(26, 26, 26, 0.98)),
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(193, 241, 29, 0.1) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 90% 60%,
+      rgba(193, 241, 29, 0.05) 0%,
+      transparent 40%
+    );
+}
+
+.dark-mode .safety-features {
+  background-color: var(--light-gray);
+}
+
+.dark-mode .safety-feature-card {
+  background-color: var(--soft-gray);
+  border-color: var(--medium-gray);
+}
+
+.dark-mode .safety-feature-card:hover {
+  border-color: var(--neon-green);
+  box-shadow: 0 8px 32px rgba(193, 241, 29, 0.2);
+}
+
+.dark-mode .verification {
+  background-color: var(--white);
+}
+
+.dark-mode .verification-step {
+  background-color: var(--light-gray);
+  border-color: var(--medium-gray);
+}
+
+.dark-mode .emergency {
+  background-color: var(--light-gray);
+}
+
+.dark-mode .emergency-card {
+  background-color: var(--soft-gray);
+  border-color: var(--medium-gray);
+}
+
+.dark-mode .tracking {
+  background-color: var(--white);
+}
+
+.dark-mode .tracking-feature {
+  background-color: var(--light-gray);
+  border-color: var(--medium-gray);
+}
+
+.dark-mode .support {
+  background-color: var(--light-gray);
+}
+
+.dark-mode .support-card {
+  background-color: var(--soft-gray);
+  border-color: var(--medium-gray);
+}
+
+.dark-mode .testimonials {
+  background-color: var(--white);
+}
+
+.dark-mode .testimonial-card {
+  background-color: var(--light-gray);
+  border-color: var(--medium-gray);
+}
+
+.dark-mode .cta {
+  background: linear-gradient(135deg, var(--white) 0%, var(--light-gray) 100%);
+}
+
+.dark-mode .footer {
+  background: #111111;
+}
+
+.dark-mode .footer-section h4 {
+  color: var(--dark-charcoal);
+}
+
+.dark-mode .footer-section a {
+  color: var(--dark-gray);
+}
+
+.dark-mode .footer-section a:hover {
+  color: var(--neon-green);
+}
+
+/* Safety UI specific dark mode adjustments */
+.dark-mode .safety-ui {
+  background-color: var(--light-gray);
+  border-color: var(--medium-gray);
+}
+
+.dark-mode .safety-option {
+  background-color: var(--soft-gray);
+}
+
+.dark-mode .safety-option:hover,
+.dark-mode .safety-option.active {
+  background-color: rgba(193, 241, 29, 0.2);
+}
+
+.dark-mode .phone-mockup .phone-frame {
+  background-color: #111111;
+  border-color: var(--neon-green);
+}
+
+.dark-mode .phone-mockup .phone-screen {
+  background-color: var(--soft-gray);
+}
+/* Ensure all text is visible in dark mode */
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6 {
+  color: var(--dark-charcoal) !important;
+}
+
+.dark-mode p,
+.dark-mode span,
+.dark-mode div {
+  color: var(--dark-gray);
+}
+
+.dark-mode .bold-primary {
+  background: #afff4f;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark-mode .bold-secondary {
+  color: var(--dark-charcoal) !important;
+}
+
+.dark-mode .nav-link {
+  color: var(--dark-charcoal);
+}
+
+.dark-mode .nav-link:hover {
+  color: var(--neon-green);
+}
+
+.dark-mode .logo span {
+  color: var(--dark-charcoal);
+}

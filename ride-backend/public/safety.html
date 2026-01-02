@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="safety_page_title">Safety First | RideFair - Premium Mobility Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/safety-styles.css">
+</head>
+
+<body>
+    <!-- 1. HEADER -->
+    <header class="header glass-effect" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-taxi"></i>
+                    </div>
+                    <span data-key="site_name">RideFair</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="desktop-nav">
+                    <div class="nav-links">
+                         <a href="index.html" class="nav-link">Home</a>
+                        <a href="about.html" class="nav-link" data-key="nav_about">About</a>
+                        <a href="book.html" class="nav-link" data-key="nav_book">Book</a>
+
+                        <a href="#services" class="nav-link" data-key="nav_services">Services</a>
+                        <a href="safety.html" class="nav-link" data-key="nav_safety">Safety</a>
+                        <a href="contact.html" class="nav-link" data-key="nav_contact">Contact</a>
+                    </div>
+
+                    <!-- Language Switcher -->
+                    <div class="language-switcher">
+                        <button class="language-toggle" id="languageToggle" aria-label="Select language">
+                            <span class="current-lang" id="currentLang">EN</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="language-dropdown" id="languageDropdown">
+                            <button class="language-option" data-lang="en">
+                                <span class="lang-code">EN</span>
+                                <span class="lang-name">English</span>
+                            </button>
+                            <button class="language-option" data-lang="am">
+                                <span class="lang-code">አማ</span>
+                                <span class="lang-name">Amharic</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="nav-actions">
+                        
+                        <a href="auth.html" class="btn btn-primary btn-signup" data-key="nav_sign_up">Sign Up</a>
+                    </div>
+                </nav>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu glass-effect" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-taxi"></i>
+                    </div>
+                    <span data-key="site_name">RideFair</span>
+                </div>
+                <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="mobile-nav-links">
+                <a href="#hero" class="mobile-nav-link" data-key="nav_home">Home</a>
+
+                <a href="about.html" class="mobile-nav-link" data-key="nav_about">About</a>
+                <a href="book.html" class="nav-link" data-key="nav_book">Book</a>
+                <a href="#services" class="mobile-nav-link" data-key="nav_services">Services</a>
+                <a href="safety.html" class="mobile-nav-link" data-key="nav_safety">Safety</a>
+                <a href="contact.html" class="mobile-nav-link" data-key="nav_contact">Contact</a>
+            </nav>
+
+            <!-- Mobile Language Switcher -->
+            <div class="mobile-language-switcher">
+                <div class="mobile-language-options">
+                    <button class="mobile-language-option active" data-lang="en">
+                        <span class="lang-code">EN</span>
+                        <span class="lang-name">English</span>
+                    </button>
+                    <button class="mobile-language-option" data-lang="am">
+                        <span class="lang-code">አማ</span>
+                        <span class="lang-name">Amharic</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="mobile-menu-actions">
+                <a href="drivers.html" class="btn btn-outline btn-block btn-driver" data-key="nav_become_driver">Become
+                    a Driver</a>
+                <a href="auth.html" class="btn btn-primary btn-block btn-signup" data-key="nav_sign_up">Sign Up</a>
+            </div>
+        </div>
+    </header>
+    <!-- 2. SAFETY FEATURES SECTION -->
+    <section class="safety-features-section" id="features">
+        <div class="container">
+            <h2 class="section-title reveal">Our <span class="bold-primary"
+                    data-key="safety_features_title">Safety</span> Features</h2>
+            <p class="section-subtitle reveal" data-key="safety_features_subtitle">Comprehensive safety measures for
+                riders and drivers</p>
+
+            <div class="safety-features-grid">
+                <div class="safety-feature-card reveal">
+                    <div class="safety-feature-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3 class="safety-feature-title" data-key="safety_feature_1_title">Driver Verification</h3>
+                    <p class="safety-feature-desc" data-key="safety_feature_1_desc">All drivers undergo rigorous
+                        background checks, driving record reviews, and identity verification before approval.</p>
+                </div>
+
+                <div class="safety-feature-card reveal">
+                    <div class="safety-feature-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3 class="safety-feature-title">Trip Sharing</h3>
+                    <p class="safety-feature-desc">Share your trip details and real-time location with trusted contacts
+                        for added peace of mind.</p>
+                </div>
+
+                <div class="safety-feature-card reveal">
+                    <div class="safety-feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="safety-feature-title">Emergency Support</h3>
+                    <p class="safety-feature-desc">24/7 access to our safety support team with one-tap emergency
+                        assistance during your ride.</p>
+                </div>
+
+                <div class="safety-feature-card reveal">
+                    <div class="safety-feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="safety-feature-title">Driver Ratings</h3>
+                    <p class="safety-feature-desc">See driver ratings and reviews from other riders before you book, and
+                        rate your own experience after each trip.</p>
+                </div>
+
+                <div class="safety-feature-card reveal">
+                    <div class="safety-feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3 class="safety-feature-title">Secure Payments</h3>
+                    <p class="safety-feature-desc">Cashless, encrypted transactions protect your payment information and
+                        eliminate cash handling risks.</p>
+                </div>
+
+                <div class="safety-feature-card reveal">
+                    <div class="safety-feature-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3 class="safety-feature-title">Ride Recording</h3>
+                    <p class="safety-feature-desc">Optional audio recording during your ride for additional security and
+                        dispute resolution if needed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. DURING YOUR RIDE SECTION -->
+    <section class="safety-tips-section">
+        <div class="container">
+            <div class="safety-tips-content">
+                <div class="safety-tips-text reveal-left">
+                    <h2 class="section-title"><span class="bold-primary">During</span> <span class="bold-secondary">Your
+                            Ride</span></h2>
+                    <p class="section-subtitle">Simple tips to ensure your safety every time you ride</p>
+
+                    <div class="safety-tips-list">
+                        <div class="safety-tip">
+                            <div class="tip-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="tip-content">
+                                <h3>Verify Driver & Vehicle</h3>
+                                <p>Always check the driver's name, photo, and license plate matches what's shown in the
+                                    app before getting in.</p>
+                            </div>
+                        </div>
+
+                        <div class="safety-tip">
+                            <div class="tip-icon">
+                                <i class="fas fa-user-friends"></i>
+                            </div>
+                            <div class="tip-content">
+                                <h3>Share Your Trip</h3>
+                                <p>Use the in-app sharing feature to let friends or family track your ride in real-time.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="safety-tip">
+                            <div class="tip-icon">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <div class="tip-content">
+                                <h3>Sit in the Back Seat</h3>
+                                <p>For optimal personal space and safety, we recommend sitting in the back seat.</p>
+                            </div>
+                        </div>
+
+                        <div class="safety-tip">
+                            <div class="tip-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="tip-content">
+                                <h3>Contact Support if Needed</h3>
+                                <p>If you feel uncomfortable at any point, contact our 24/7 support team immediately.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="safety-tips-visual reveal-right">
+                    <div class="safety-phone-mockup">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <div class="safety-phone-ui">
+                                    <div class="safety-phone-header">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <span>Safety Check</span>
+                                    </div>
+                                    <div class="safety-phone-content">
+                                        <div class="safety-status-item active">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Driver Verified</span>
+                                        </div>
+                                        <div class="safety-status-item active">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Trip Shared</span>
+                                        </div>
+                                        <div class="safety-status-item">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <span>Live Tracking</span>
+                                        </div>
+                                        <div class="safety-status-item">
+                                            <i class="fas fa-phone-alt"></i>
+                                            <span>Emergency Ready</span>
+                                        </div>
+                                    </div>
+                                    <button class="safety-phone-btn">Share Trip Status</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. EMERGENCY SUPPORT SECTION -->
+    <section class="emergency-section">
+        <div class="container">
+            <div class="emergency-card reveal">
+                <div class="emergency-icon">
+                    <i class="fas fa-life-ring"></i>
+                </div>
+                <h2 class="emergency-title">24/7 Emergency Support</h2>
+                <p class="emergency-desc">Our dedicated safety team is available around the clock to assist you with any
+                    concerns during your ride.</p>
+                <div class="emergency-contacts">
+                    <div class="contact-method">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>Emergency Hotline: +251 912345678</span>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-comment-alt"></i>
+                        <span>In-App Support Chat</span>
+                    </div>
+                </div>
+                <a href="contact.html" class="btn btn-primary btn-large emergency-btn">Contact Support</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. CALL TO ACTION SECTION -->
+    <section class="safety-cta-section">
+        <div class="container">
+            <div class="safety-cta-content reveal">
+                <h2 class="section-title">Ride with <span class="bold-primary">Confidence</span></h2>
+                <p class="section-subtitle">Experience premium mobility with safety at the core of every journey</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary btn-large">Book a Ride</a>
+                    <a href="#" class="btn btn-outline btn-large">Download the App</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. FOOTER (same as main page) -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-taxi"></i>
+                        </div>
+                        <span>RideFair</span>
+                    </a>
+
+                    <p class="footer-tagline">Fair rides. Fair prices. Worldwide.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title">Riders</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">How it works</a>
+                        <a href="#" class="footer-link">Fare estimate</a>
+                        <a href="#" class="footer-link">Cities</a>
+                        <a href="#features" class="footer-link">Safety</a>
+                        <a href="#" class="footer-link">Help Center</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title">Drivers</h4>
+                    <div class="footer-links">
+                        <a href="drivers.html" class="footer-link">Become a driver</a>
+                        <a href="#" class="footer-link">Driver requirements</a>
+                        <a href="#" class="footer-link">Driver portal</a>
+                        <a href="#" class="footer-link">Driver support</a>
+                        <a href="#" class="footer-link">Earnings</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title">Company</h4>
+                    <div class="footer-links">
+                        <a href="about.html" class="footer-link">About us</a>
+                        <a href="#" class="footer-link">Careers</a>
+                        <a href="#" class="footer-link">Press</a>
+                        <a href="#" class="footer-link">Blog</a>
+                        <a href="#" class="footer-link">Brand guidelines</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title">Legal</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                        <a href="#" class="footer-link">Terms of Service</a>
+                        <a href="#" class="footer-link">Cookie Policy</a>
+                        <a href="#" class="footer-link">Accessibility</a>
+                        <a href="#" class="footer-link">Licenses</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; <span id="currentYear"></span> RideFair. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dark/Light Mode Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </button>
+
+    <script src="js/script.js"></script>
+    <script src="js/safety-script.js"></script>
+</body>
+
+</html>

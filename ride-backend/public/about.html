@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="about_page_title">About Us - RideFair</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/about.css">
+</head>
+
+<body>
+    <!-- 1. HEADER -->
+    <header class="header glass-effect" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-taxi"></i>
+                    </div>
+                    <span data-key="site_name">RideFair</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="desktop-nav">
+                    <div class="nav-links">
+                        <a href="index.html" class="nav-link">Home</a>
+                        <a href="about.html" class="nav-link" data-key="nav_about">About</a>
+                        <a href="book.html" class="nav-link" data-key="nav_book">Book</a>
+
+                        <a href="#services" class="nav-link" data-key="nav_services">Services</a>
+                        <a href="safety.html" class="nav-link" data-key="nav_safety">Safety</a>
+                        <a href="contact.html" class="nav-link" data-key="nav_contact">Contact</a>
+                    </div>
+
+                    <!-- Language Switcher -->
+                    <div class="language-switcher">
+                        <button class="language-toggle" id="languageToggle" aria-label="Select language">
+                            <span class="current-lang" id="currentLang">EN</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="language-dropdown" id="languageDropdown">
+                            <button class="language-option" data-lang="en">
+                                <span class="lang-code">EN</span>
+                                <span class="lang-name">English</span>
+                            </button>
+                            <button class="language-option" data-lang="am">
+                                <span class="lang-code">አማ</span>
+                                <span class="lang-name">Amharic</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="nav-actions">
+                        
+                        <a href="auth.html" class="btn btn-primary btn-signup" data-key="nav_sign_up">Sign Up</a>
+                    </div>
+                </nav>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu glass-effect" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-taxi"></i>
+                    </div>
+                    <span data-key="site_name">RideFair</span>
+                </div>
+                <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="mobile-nav-links">
+                <a href="#hero" class="mobile-nav-link" data-key="nav_home">Home</a>
+
+                <a href="about.html" class="mobile-nav-link" data-key="nav_about">About</a>
+                <a href="book.html" class="nav-link" data-key="nav_book">Book</a>
+                <a href="#services" class="mobile-nav-link" data-key="nav_services">Services</a>
+                <a href="safety.html" class="mobile-nav-link" data-key="nav_safety">Safety</a>
+                <a href="contact.html" class="mobile-nav-link" data-key="nav_contact">Contact</a>
+            </nav>
+
+            <!-- Mobile Language Switcher -->
+            <div class="mobile-language-switcher">
+                <div class="mobile-language-options">
+                    <button class="mobile-language-option active" data-lang="en">
+                        <span class="lang-code">EN</span>
+                        <span class="lang-name">English</span>
+                    </button>
+                    <button class="mobile-language-option" data-lang="am">
+                        <span class="lang-code">አማ</span>
+                        <span class="lang-name">Amharic</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="mobile-menu-actions">
+                <a href="drivers.html" class="btn btn-outline btn-block btn-driver" data-key="nav_become_driver">Become
+                    a Driver</a>
+                <a href="auth.html" class="btn btn-primary btn-block btn-signup" data-key="nav_sign_up">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. PAGE HEADER (Mini Hero) -->
+    <section class="page-header" id="hero">
+        <canvas id="particleCanvas" class="particle-canvas"></canvas>
+        <div class="page-header-background"></div>
+        <div class="container">
+            <div class="page-header-content">
+                <h1 class="page-header-title reveal-left" data-key="about_page_title">About Us</h1>
+                <p class="page-header-subtitle reveal-right" data-key="about_page_subtitle">Reinventing mobility through
+                    fairness, transparency, and choice.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. MISSION SECTION -->
+    <section class="mission" id="mission">
+        <div class="container">
+            <div class="mission-content">
+                <div class="mission-text reveal-left">
+                    <h2 class="section-title"><span class="bold-primary" data-key="mission_title_1">Our</span> <span
+                            class="bold-secondary" data-key="mission_title_2">Mission</span></h2>
+                    <p class="mission-description" data-key="mission_desc_1">Our mission is to create a mobility
+                        platform where riders and drivers
+                        can interact fairly, transparently, and independently — without algorithmic price manipulation.
+                    </p>
+                    <p class="mission-description" data-key="mission_desc_2">We believe that transportation should
+                        empower both passengers and
+                        drivers. That's why we've built a system where riders set their own price, drivers choose the
+                        rides they want, and both parties have complete transparency into every transaction.</p>
+                    <div class="mission-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span data-key="mission_highlight_1">Fair pricing with no hidden surges</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span data-key="mission_highlight_2">Driver autonomy and choice</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span data-key="mission_highlight_3">Transparent trip data</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mission-visual reveal-right">
+                    <div class="mission-card glass-effect">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3 data-key="mission_card_title">Fairness First</h3>
+                        <p data-key="mission_card_desc">We put fairness at the heart of everything we do.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- 5. VALUES SECTION -->
+    <section class="values" id="values">
+        <div class="container">
+            <h2 class="section-title reveal"><span class="bold-primary" data-key="values_title_1">Why We</span> <span
+                    class="bold-secondary" data-key="values_title_2">Exist</span></h2>
+            <p class="section-subtitle reveal" data-key="values_subtitle">The core values that drive every decision we
+                make</p>
+
+            <div class="values-grid">
+                <div class="value-card reveal">
+                    <div class="value-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3 data-key="value_1_title">Fair Pricing</h3>
+                    <p data-key="value_1_desc">Riders and drivers both deserve fair prices, not inflated surge rates or
+                        hidden fees.</p>
+                </div>
+
+
+                <div class="value-card reveal">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 data-key="value_2_title">Empowering Drivers</h3>
+                    <p data-key="value_2_desc">Drivers have full autonomy to choose which rides they accept and set
+                        their terms.</p>
+                </div>
+
+                <div class="value-card reveal">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 data-key="value_3_title">Safer Mobility</h3>
+                    <p data-key="value_3_desc">Advanced safety features, verification checks, and 24/7 support for all
+                        users.</p>
+                </div>
+
+
+
+                <div class="value-card reveal">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 data-key="value_4_title">Customer First</h3>
+                    <p data-key="value_4_desc">Every decision is driven by what's best for our riders and drivers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- 7. GLOBAL PRESENCE SECTION -->
+    <section class="presence" id="presence">
+        <div class="container">
+            <h2 class="section-title reveal"><span class="bold-primary" data-key="presence_title_1">Global</span> <span
+                    class="bold-secondary" data-key="presence_title_2">Presence</span></h2>
+            <p class="section-subtitle reveal" data-key="presence_subtitle">Trusted by millions across the world</p>
+
+            <div class="presence-stats">
+                <div class="stat-card reveal">
+                    <div class="stat-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="stat-value" data-count="48">0</div>
+                    <div class="stat-text" data-key="stat_countries">Countries</div>
+                </div>
+
+                <div class="stat-card reveal">
+                    <div class="stat-icon">
+                        <i class="fas fa-city"></i>
+                    </div>
+                    <div class="stat-value" data-count="700">0</div>
+                    <div class="stat-text" data-key="stat_cities">Cities</div>
+                </div>
+
+                <div class="stat-card reveal">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-value" data-count="500">0</div>
+                    <div class="stat-text" data-key="stat_million_users">Million Users</div>
+                </div>
+
+                <div class="stat-card reveal">
+                    <div class="stat-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="stat-value" data-count="50">0</div>
+                    <div class="stat-text" data-key="stat_million_rides">Million Rides Daily</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. WHAT MAKES US DIFFERENT -->
+    <section class="difference" id="difference">
+        <div class="container">
+            <div class="difference-content">
+                <div class="difference-text reveal-left">
+                    <h2 class="section-title"><span class="bold-primary" data-key="difference_title_1">What Makes</span>
+                        <span class="bold-secondary" data-key="difference_title_2">Us Different</span></h2>
+                </div>
+                <div class="difference-list reveal-right">
+                    <div class="difference-item">
+                        <i class="fas fa-check"></i>
+                        <span data-key="difference_1">Riders set their own price</span>
+                    </div>
+                    <div class="difference-item">
+                        <i class="fas fa-check"></i>
+                        <span data-key="difference_2">Drivers choose the rides they want</span>
+                    </div>
+                    <div class="difference-item">
+                        <i class="fas fa-check"></i>
+                        <span data-key="difference_3">Safety first approach</span>
+                    </div>
+                    <div class="difference-item">
+                        <i class="fas fa-check"></i>
+                        <span data-key="difference_4">No surge pricing manipulation</span>
+                    </div>
+                    <div class="difference-item">
+                        <i class="fas fa-check"></i>
+                        <span data-key="difference_5">Transparent ride data</span>
+                    </div>
+                    <div class="difference-item">
+                        <i class="fas fa-check"></i>
+                        <span data-key="difference_6">Fair driver commissions</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- 10. CTA SECTION -->
+    <section class="cta-section" id="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title reveal-up" data-key="cta_title">Join the Future of Fair Mobility</h2>
+                <p class="cta-subtitle reveal-up" data-key="cta_subtitle">Experience a ride-sharing platform built on
+                    fairness, transparency,
+                    and choice.</p>
+                <div class="cta-buttons reveal-up">
+                    <button class="btn btn-primary btn-large" data-key="cta_download_app">Download App</button>
+                    <button class="btn btn-outline btn-large" data-key="nav_become_driver">Become a Driver</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-taxi"></i>
+                        </div>
+                        <span data-key="site_name">RideFair</span>
+                    </div>
+                    <p data-key="footer_tagline">Making mobility fair for everyone, everywhere.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4 data-key="footer_company">Company</h4>
+                    <ul>
+                        <li><a href="#" data-key="footer_about_us">About Us</a></li>
+                        <li><a href="#" data-key="footer_careers">Careers</a></li>
+                        <li><a href="#" data-key="footer_blog">Blog</a></li>
+                        <li><a href="#" data-key="footer_press">Press</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 data-key="footer_riders">Riders</h4>
+                    <ul>
+                        <li><a href="#" data-key="cta_download_app">Download App</a></li>
+                        <li><a href="#" data-key="footer_how_it_works">How It Works</a></li>
+                        <li><a href="#" data-key="footer_safety">Safety</a></li>
+                        <li><a href="#" data-key="footer_support">Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 data-key="footer_drivers">Drivers</h4>
+                    <ul>
+                        <li><a href="#" data-key="footer_become_driver">Drive with Us</a></li>
+                        <li><a href="#" data-key="nav_sign_up">Sign Up</a></li>
+                        <li><a href="#" data-key="footer_driver_support">Driver Support</a></li>
+                        <li><a href="#" data-key="footer_insurance">Insurance</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                <p>&copy; <span id="currentYear">2024</span> <span data-key="site_name">RideFair</span>. <span
+                        data-key="footer_all_rights_reserved">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dark/Light Mode Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </button>
+
+    <script src="js/script.js"></script>
+    <script src="js/about.js"></script>
+</body>
+
+</html>

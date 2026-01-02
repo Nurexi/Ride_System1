@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - RideFair</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+    <!-- Simple Admin Login Modal -->
+    <div class="modal active" id="adminLoginModal">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h3><i class="fas fa-shield-alt"></i> Admin Login</h3>
+            </div>
+            <form class="modal-form" id="adminLoginForm">
+                <div class="form-group">
+                    <label for="adminEmail">Email</label>
+                    <input type="email" id="adminEmail" value="admin@ridefair.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminPassword">Password</label>
+                    <input type="password" id="adminPassword" value="RideFair2024!" required>
+                </div>
+                <div class="modal-actions">
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        Login
+                    </button>
+                </div>
+                <div id="loginError" style="display: none; color: red; text-align: center; margin-top: 10px;"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard Layout -->
+    <div class="admin-layout" id="adminDashboard" style="display: none;">
+        <!-- Sidebar Navigation -->
+        <aside class="admin-sidebar" id="adminSidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-taxi"></i>
+                    </div>
+                    <span class="logo-text">RideFair</span>
+                    <span class="admin-badge">Admin</span>
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="nav-menu">
+                    <li class="nav-item active">
+                        <a href="#dashboard" class="nav-link" data-section="dashboard">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#vehicles" class="nav-link" data-section="vehicles">
+                            <i class="fas fa-car"></i>
+                            <span>Vehicles</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#users" class="nav-link" data-section="users">
+                            <i class="fas fa-users"></i>
+                            <span>Users</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#bookings" class="nav-link" data-section="bookings">
+                            <i class="fas fa-calendar-check"></i>
+                            <span>Bookings</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#analytics" class="nav-link" data-section="analytics">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="sidebar-footer">
+                    <div class="admin-profile">
+                        <div class="profile-avatar">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <div class="profile-info">
+                            <div class="profile-name" id="adminProfileName">Admin User</div>
+                            <div class="profile-role">System Administrator</div>
+                        </div>
+                    </div>
+                    <button class="logout-btn" onclick="adminLogout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </button>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="admin-main">
+            <!-- Dashboard Overview Section -->
+            <section class="admin-section active" id="dashboard-section">
+                <div class="section-header">
+                    <h1 class="section-title">
+                        <span class="bold-primary">Dashboard</span>
+                        <span class="bold-secondary">Overview</span>
+                    </h1>
+                    <p class="section-subtitle">Monitor your platform's performance and activity</p>
+                </div>
+
+                <!-- Quick Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card rides-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="totalRides">1,247</div>
+                            <div class="stat-label">Total Rides</div>
+                            <div class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>+12% from last month</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card drivers-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="activeDrivers">89</div>
+                            <div class="stat-label">Active Drivers</div>
+                            <div class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>+5 new this week</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card vehicles-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="availableVehicles">67</div>
+                            <div class="stat-label">Available Vehicles</div>
+                            <div class="stat-change neutral">
+                                <i class="fas fa-minus"></i>
+                                <span>No change</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card bookings-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="todayBookings">23</div>
+                            <div class="stat-label">Today's Bookings</div>
+                            <div class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>+8 from yesterday</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="dashboard-grid">
+                    <div class="activity-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-clock"></i> Recent Activity</h3>
+                            <button class="refresh-btn" onclick="refreshActivity()">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                        </div>
+                        <div class="activity-list" id="activityList">
+                            <!-- Activity items will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="quick-actions-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-bolt"></i> Quick Actions</h3>
+                        </div>
+                        <div class="quick-actions">
+                            <button class="action-btn primary" onclick="showAddVehicleModal()">
+                                <i class="fas fa-plus"></i>
+                                <span>Add Vehicle</span>
+                            </button>
+                            <button class="action-btn secondary" onclick="showSection('drivers')">
+                                <i class="fas fa-user-check"></i>
+                                <span>Review Drivers</span>
+                            </button>
+                            <button class="action-btn tertiary" onclick="showSection('analytics')">
+                                <i class="fas fa-chart-line"></i>
+                                <span>View Reports</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Vehicles Management Section -->
+            <section class="admin-section" id="vehicles-section">
+                <div class="section-header">
+                    <h1 class="section-title">
+                        <span class="bold-primary">Vehicle</span>
+                        <span class="bold-secondary">Management</span>
+                    </h1>
+                    <p class="section-subtitle">Manage your fleet of vehicles</p>
+                    <button class="btn btn-primary" onclick="showAddVehicleModal()">
+                        <i class="fas fa-plus"></i> Add New Vehicle
+                    </button>
+                </div>
+
+                <!-- Vehicle Filters -->
+                <div class="filters-bar">
+                    <div class="filter-group">
+                        <label>Status:</label>
+                        <select id="vehicleStatusFilter" onchange="filterVehicles()">
+                            <option value="all">All Vehicles</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                            <option value="maintenance">Maintenance</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Type:</label>
+                        <select id="vehicleTypeFilter" onchange="filterVehicles()">
+                            <option value="all">All Types</option>
+                            <option value="car">Cars</option>
+                            <option value="bike">Bikes</option>
+                        </select>
+                    </div>
+                    <div class="search-group">
+                        <input type="text" id="vehicleSearch" placeholder="Search vehicles..." onkeyup="searchVehicles()">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+
+                <!-- Vehicles Table -->
+                <div class="table-container">
+                    <table class="admin-table" id="vehiclesTable">
+                        <thead>
+                            <tr>
+                                <th>Vehicle</th>
+                                <th>Type</th>
+                                <th>Plate Number</th>
+                                <th>Driver</th>
+                                <th>Status</th>
+                                <th>Daily Rate</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="vehiclesTableBody">
+                            <!-- Vehicle rows will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Users Management Section -->
+            <section class="admin-section" id="users-section">
+                <div class="section-header">
+                    <h1 class="section-title">
+                        <span class="bold-primary">User</span>
+                        <span class="bold-secondary">Management</span>
+                    </h1>
+                    <p class="section-subtitle">Manage registered users and system administrators</p>
+                </div>
+
+                <!-- Users Table -->
+                <div class="table-container">
+                    <table class="admin-table" id="usersTable">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Phone</th>
+                                <th>Total Bookings</th>
+                                <th>Role/Status</th>
+                                <th>Joined</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody">
+                            <!-- User rows will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Bookings Management Section -->
+            <section class="admin-section" id="bookings-section">
+                <div class="section-header">
+                    <h1 class="section-title">
+                        <span class="bold-primary">Booking</span>
+                        <span class="bold-secondary">Management</span>
+                    </h1>
+                    <p class="section-subtitle">View and manage all ride bookings</p>
+                </div>
+
+                <!-- Bookings Table -->
+                <div class="table-container">
+                    <table class="admin-table" id="bookingsTable">
+                        <thead>
+                            <tr>
+                                <th>Booking ID</th>
+                                <th>User</th>
+                                <th>Vehicle</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bookingsTableBody">
+                            <!-- Booking rows will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Drivers Management Section -->
+            <section class="admin-section" id="drivers-section">
+                <div class="section-header">
+                    <h1 class="section-title">
+                        <span class="bold-primary">Driver</span>
+                        <span class="bold-secondary">Applications</span>
+                    </h1>
+                    <p class="section-subtitle">Review and approve driver applications (Coming Soon)</p>
+                </div>
+
+                <div style="text-align: center; padding: 60px 20px; color: #6b7280;">
+                    <i class="fas fa-users" style="font-size: 3rem; margin-bottom: 20px; opacity: 0.3;"></i>
+                    <h3>Driver Management Coming Soon</h3>
+                    <p>Driver application and approval system will be available in the next update.</p>
+                </div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section class="admin-section" id="analytics-section">
+                <div class="section-header">
+                    <h1 class="section-title">
+                        <span class="bold-primary">Analytics</span>
+                        <span class="bold-secondary">& Reports</span>
+                    </h1>
+                    <p class="section-subtitle">Platform performance insights and trends</p>
+                </div>
+
+                <!-- Analytics Grid -->
+                <div class="analytics-grid">
+                    <!-- Rides Chart -->
+                    <div class="chart-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-chart-line"></i> Rides Per Day</h3>
+                            <div class="chart-controls">
+                                <select id="ridesChartPeriod" onchange="updateRidesChart()">
+                                    <option value="7">Last 7 Days</option>
+                                    <option value="30">Last 30 Days</option>
+                                    <option value="90">Last 3 Months</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="ridesChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Payment Methods Chart -->
+                    <div class="chart-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-credit-card"></i> Payment Methods</h3>
+                        </div>
+                        <div class="chart-container">
+                            <div class="payment-stats">
+                                <div class="payment-item">
+                                    <div class="payment-color telebirr"></div>
+                                    <span class="payment-name">TeleBirr</span>
+                                    <span class="payment-percentage">78%</span>
+                                </div>
+                                <div class="payment-item">
+                                    <div class="payment-color cash"></div>
+                                    <span class="payment-name">Cash</span>
+                                    <span class="payment-percentage">15%</span>
+                                </div>
+                                <div class="payment-item">
+                                    <div class="payment-color wallet"></div>
+                                    <span class="payment-name">Wallet</span>
+                                    <span class="payment-percentage">7%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vehicle Usage -->
+                    <div class="chart-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-car"></i> Most Used Vehicles</h3>
+                        </div>
+                        <div class="chart-container">
+                            <div class="vehicle-usage-list">
+                                <div class="usage-item">
+                                    <div class="vehicle-info">
+                                        <i class="fas fa-car"></i>
+                                        <span>Hyundai Elantra</span>
+                                    </div>
+                                    <div class="usage-bar">
+                                        <div class="usage-fill" style="width: 85%"></div>
+                                    </div>
+                                    <span class="usage-count">127 rides</span>
+                                </div>
+                                <div class="usage-item">
+                                    <div class="vehicle-info">
+                                        <i class="fas fa-car"></i>
+                                        <span>Nissan Sentra</span>
+                                    </div>
+                                    <div class="usage-bar">
+                                        <div class="usage-fill" style="width: 72%"></div>
+                                    </div>
+                                    <span class="usage-count">98 rides</span>
+                                </div>
+                                <div class="usage-item">
+                                    <div class="vehicle-info">
+                                        <i class="fas fa-car"></i>
+                                        <span>Kia Forte</span>
+                                    </div>
+                                    <div class="usage-bar">
+                                        <div class="usage-fill" style="width: 68%"></div>
+                                    </div>
+                                    <span class="usage-count">89 rides</span>
+                                </div>
+                                <div class="usage-item">
+                                    <div class="vehicle-info">
+                                        <i class="fas fa-motorcycle"></i>
+                                        <span>Mazda CX-5</span>
+                                    </div>
+                                    <div class="usage-bar">
+                                        <div class="usage-fill" style="width: 45%"></div>
+                                    </div>
+                                    <span class="usage-count">56 rides</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Add Vehicle Modal -->
+    <div class="modal" id="addVehicleModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-plus"></i> Add New Vehicle</h3>
+                <button class="modal-close" onclick="closeModal('addVehicleModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form class="modal-form" id="addVehicleForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="vehicleBrand">Brand</label>
+                        <input type="text" id="vehicleBrand" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicleModel">Model</label>
+                        <input type="text" id="vehicleModel" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicleYear">Year</label>
+                        <input type="number" id="vehicleYear" min="2000" max="2024" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicleType">Type</label>
+                        <select id="vehicleType" required>
+                            <option value="">Select Type</option>
+                            <option value="car">Car</option>
+                            <option value="bike">Bike</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="vehiclePlate">Plate Number</label>
+                        <input type="text" id="vehiclePlate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicleColor">Color</label>
+                        <input type="text" id="vehicleColor" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicleSeats">Seats</label>
+                        <input type="number" id="vehicleSeats" min="1" max="8" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicleRate">Daily Rate (ETB)</label>
+                        <input type="number" id="vehicleRate" min="50" required>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-outline" onclick="closeModal('addVehicleModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Vehicle</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Driver Details Modal -->
+    <div class="modal" id="driverDetailsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-user"></i> Driver Application</h3>
+                <button class="modal-close" onclick="closeModal('driverDetailsModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="driver-details" id="driverDetailsContent">
+                <!-- Driver details will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1018 @@
+/* ============================================
+   CSS Variables & Design Tokens
+   ============================================ */
+:root {
+  --neon-green: #C1F11D;
+  --neon-green-light: rgba(193, 241, 29, 0.1);
+  --neon-green-dark: #A8D600;
+  --black: #000000;
+  --dark-charcoal: #1A1A1A;
+  --white: #FFFFFF;
+  --soft-gray: #F5F5F5;
+  --medium-gray: #E5E7EB;
+  --dark-gray: #6B7280;
+  --error-red: #EF4444;
+  --success-green: #10B981;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 20px 48px rgba(0, 0, 0, 0.15);
+  --neon-glow: 0 0 20px rgba(193, 241, 29, 0.7);
+  --neon-glow-light: 0 0 10px rgba(193, 241, 29, 0.4);
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 24px;
+
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --transition-smooth: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --transition-slow: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ============================================
+   Global Styles & Reset
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--dark-charcoal);
+  color: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   Typography Classes
+   ============================================ */
+.bold-primary {
+  font-weight: 900;
+  color: var(--neon-green);
+  letter-spacing: -0.02em;
+}
+
+.bold-secondary {
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.01em;
+}
+
+/* ============================================
+   Main Container
+   ============================================ */
+.auth-container {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ============================================
+   1️⃣ Left Side: Hero Section
+   ============================================ */
+.auth-hero {
+  flex: 1;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)),
+              url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  overflow: hidden;
+}
+
+.particle-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(0, 0, 0, 0.8) 100%);
+  z-index: 2;
+}
+
+.neon-line {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, var(--neon-green), transparent);
+  z-index: 3;
+  opacity: 0.3;
+  animation: neon-pulse 4s ease-in-out infinite alternate;
+}
+
+.line-1 {
+  top: 20%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  animation-delay: 0s;
+}
+
+.line-2 {
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  animation-delay: 1s;
+}
+
+.line-3 {
+  top: 80%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  animation-delay: 2s;
+}
+
+.floating-icon {
+  position: absolute;
+  color: var(--neon-green);
+  font-size: 1.5rem;
+  z-index: 3;
+  opacity: 0.5;
+  animation: float 6s ease-in-out infinite;
+}
+
+.icon-1 {
+  top: 25%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.icon-2 {
+  top: 60%;
+  right: 20%;
+  animation-delay: 2s;
+}
+
+.icon-3 {
+  bottom: 25%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 4;
+  max-width: 600px;
+  width: 100%;
+  animation: fade-up 1s ease-out;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: var(--neon-green);
+  text-decoration: none;
+  margin-bottom: 40px;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--neon-green);
+  color: var(--black);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.hero-text {
+  margin-bottom: 50px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 500px;
+}
+
+.hero-features {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.feature i {
+  color: var(--neon-green);
+  font-size: 1.3rem;
+  width: 24px;
+}
+
+/* ============================================
+   2️⃣ Right Side: Authentication Forms
+   ============================================ */
+.auth-forms {
+  flex: 1;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.forms-wrapper {
+  width: 100%;
+  max-width: 480px;
+  position: relative;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.form-container {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--medium-gray);
+  position: relative;
+  width: 100%;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 0.4s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.form-container.active {
+  opacity: 1;
+  transform: translateX(0);
+  position: relative;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.form-header h2 {
+  font-size: 2.2rem;
+  color: var(--dark-charcoal);
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.form-header p {
+  color: var(--dark-gray);
+  font-size: 1rem;
+}
+
+.auth-form {
+  width: 100%;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+@media (min-width: 480px) {
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .form-grid .form-group:nth-child(1),
+  .form-grid .form-group:nth-child(2),
+  .form-grid .form-group:nth-child(5),
+  .form-grid .form-group:nth-child(6) {
+    grid-column: span 2;
+  }
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.input-wrapper {
+  position: relative;
+  background: var(--soft-gray);
+  border-radius: var(--radius-lg);
+  border: 2px solid transparent;
+  transition: var(--transition-smooth);
+}
+
+.input-wrapper:focus-within {
+  border-color: var(--neon-green);
+  box-shadow: 0 0 0 3px var(--neon-green-light);
+  background: var(--white);
+}
+
+.input-wrapper i {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--dark-gray);
+  font-size: 1.1rem;
+  transition: var(--transition-smooth);
+  z-index: 2;
+}
+
+.input-wrapper:focus-within i {
+  color: var(--neon-green);
+}
+
+.input-wrapper input {
+  width: 100%;
+  /* Add right padding to make room for the show/hide button inside the input */
+  padding: 16px 72px 16px 50px;
+  border: none;
+  background: transparent;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  color: var(--dark-charcoal);
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+.input-wrapper input:focus {
+  background: transparent;
+}
+
+.input-wrapper label {
+  position: absolute;
+  left: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--dark-gray);
+  font-size: 1rem;
+  pointer-events: none;
+  transition: var(--transition-smooth);
+  background: var(--soft-gray);
+  padding: 0 5px;
+  /* Reserve space on the right so the label background doesn't overlap the toggle */
+  padding-right: 72px;
+}
+
+.input-wrapper:focus-within label,
+.input-wrapper input:not(:placeholder-shown) + label {
+  top: -8px;
+  left: 12px;
+  font-size: 0.85rem;
+  color: var(--neon-green);
+  background: var(--white);
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: none;
+  color: var(--dark-gray);
+  cursor: pointer;
+  font-size: 1.05rem;
+  transition: var(--transition-smooth);
+  z-index: 10;
+  border-radius: 8px;
+}
+
+.password-toggle:hover {
+  color: var(--neon-green);
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--dark-gray);
+  user-select: none;
+}
+
+.checkbox-label input {
+  display: none;
+}
+
+.checkbox-label .checkmark {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--medium-gray);
+  border-radius: var(--radius-sm);
+  position: relative;
+  transition: var(--transition-smooth);
+  flex-shrink: 0;
+}
+
+.checkbox-label input:checked + .checkmark {
+  background-color: var(--neon-green);
+  border-color: var(--neon-green);
+}
+
+.checkbox-label input:checked + .checkmark::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--black);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.forgot-link {
+  color: var(--neon-green);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.forgot-link:hover {
+  color: var(--neon-green-dark);
+  text-decoration: underline;
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 24px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition-bounce);
+  border: 2px solid transparent;
+  outline: none;
+  gap: 10px;
+  font-family: var(--font-family);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-primary {
+  background-color: var(--neon-green);
+  color: var(--black);
+  font-weight: 700;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  background-color: var(--neon-green-dark);
+  transform: translateY(-3px);
+  box-shadow: var(--neon-glow);
+}
+
+.btn-social {
+  background: var(--white);
+  color: var(--dark-charcoal);
+  border: 2px solid var(--medium-gray);
+  flex: 1;
+}
+
+.btn-social:hover {
+  border-color: var(--neon-green);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-google i {
+  color: #DB4437;
+}
+
+.btn-apple i {
+  color: var(--dark-charcoal);
+}
+
+/* ============================================
+   Divider
+   ============================================ */
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+  color: var(--dark-gray);
+  font-size: 0.9rem;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--medium-gray);
+}
+
+.divider span {
+  padding: 0 15px;
+}
+
+/* ============================================
+   Social Buttons
+   ============================================ */
+.social-buttons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+/* ============================================
+   Form Footer
+   ============================================ */
+.form-footer {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--medium-gray);
+}
+
+.form-footer p {
+  color: var(--dark-gray);
+  font-size: 0.95rem;
+}
+
+.toggle-link {
+  color: var(--neon-green);
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+  cursor: pointer;
+}
+
+.toggle-link:hover {
+  color: var(--neon-green-dark);
+  text-decoration: underline;
+}
+
+/* ============================================
+   Password Strength
+   ============================================ */
+.password-strength {
+  margin-top: 10px;
+}
+
+.strength-bar {
+  height: 4px;
+  background: var(--medium-gray);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.strength-progress {
+  height: 100%;
+  width: 0%;
+  background: var(--error-red);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.strength-progress.weak {
+  width: 33%;
+  background: var(--error-red);
+}
+
+.strength-progress.medium {
+  width: 66%;
+  background: #F59E0B;
+}
+
+.strength-progress.strong {
+  width: 100%;
+  background: var(--success-green);
+}
+
+.strength-label {
+  font-size: 0.8rem;
+  color: var(--dark-gray);
+  text-align: right;
+}
+
+/* ============================================
+   Password Match
+   ============================================ */
+.password-match {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--success-green);
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: var(--transition-smooth);
+}
+
+.password-match.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.password-match i {
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   Form Hint
+   ============================================ */
+.form-hint {
+  font-size: 0.85rem;
+  color: var(--dark-gray);
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+/* ============================================
+   Success Message
+   ============================================ */
+.success-message {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: var(--transition-slow);
+  z-index: 10;
+}
+
+.success-message.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.success-icon {
+  font-size: 4rem;
+  color: var(--success-green);
+  margin-bottom: 30px;
+  animation: scale-up 0.6s ease-out;
+}
+
+.success-message h3 {
+  font-size: 2rem;
+  color: var(--dark-charcoal);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.success-message p {
+  color: var(--dark-gray);
+  text-align: center;
+  max-width: 400px;
+  margin-bottom: 30px;
+}
+
+.success-progress {
+  width: 200px;
+  height: 4px;
+  background: var(--medium-gray);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--success-green);
+  border-radius: 2px;
+  animation: loading 3s ease-in-out forwards;
+}
+
+/* ============================================
+   Mobile Toggle
+   ============================================ */
+.mobile-toggle {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 100;
+  background: var(--neon-green);
+  color: var(--black);
+  border: none;
+  border-radius: var(--radius-full);
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: var(--neon-glow);
+  transition: var(--transition-bounce);
+  align-items: center;
+  gap: 10px;
+}
+
+.mobile-toggle:hover {
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* ============================================
+   Error States
+   ============================================ */
+.input-wrapper.error {
+  border-color: var(--error-red);
+}
+
+.input-wrapper.error:focus-within {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.error-message {
+  color: var(--error-red);
+  font-size: 0.85rem;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  animation: fade-up 0.3s ease-out;
+}
+
+.error-message i {
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-left {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes neon-pulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+@keyframes scale-up {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes loading {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+@media (max-width: 1024px) {
+  .auth-container {
+    flex-direction: column;
+    min-height: auto;
+  }
+  
+  .auth-hero {
+    min-height: 40vh;
+    padding: 30px 20px;
+  }
+  
+  .auth-forms {
+    min-height: 60vh;
+    padding: 30px 20px;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .form-container {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .auth-hero {
+    min-height: 35vh;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .form-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .form-container {
+    padding: 25px;
+  }
+  
+  .mobile-toggle {
+    display: flex;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-grid .form-group {
+    grid-column: span 1 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-hero {
+    min-height: 30vh;
+    padding: 20px;
+  }
+  
+  .auth-forms {
+    padding: 20px;
+  }
+  
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .logo-icon {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .form-container {
+    padding: 20px;
+  }
+  
+  .form-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .social-buttons {
+    flex-direction: column;
+  }
+  
+  .mobile-toggle {
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
+  
+  .floating-icon {
+    display: none;
+  }
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+.hidden {
+  display: none !important;
+}
+
+.visible {
+  display: block !important;
+}
